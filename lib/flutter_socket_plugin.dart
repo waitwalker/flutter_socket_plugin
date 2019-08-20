@@ -1,13 +1,3 @@
-import 'dart:async';
+library flutter_socket_plugin;
 
-import 'package:flutter/services.dart';
-
-class FlutterSocketPlugin {
-  static const MethodChannel _channel =
-      const MethodChannel('flutter_socket_plugin');
-
-  static Future<String> get platformVersion async {
-    final String version = await _channel.invokeMethod('getPlatformVersion');
-    return version;
-  }
-}
+export 'package:flutter_socket_plugin/flutter_socket.dart';
