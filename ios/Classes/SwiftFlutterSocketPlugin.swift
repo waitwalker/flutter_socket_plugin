@@ -4,14 +4,21 @@ import CocoaAsyncSocket
 
 
 public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
+    
+    var registrar: FlutterPluginRegistrar
+    
+    init(_ _registrar: FlutterPluginRegistrar){
+        registrar = _registrar
+    }
+    
   public static func register(with registrar: FlutterPluginRegistrar) {
     let channel = FlutterMethodChannel(name: "flutter_socket_plugin", binaryMessenger: registrar.messenger())
-    let instance = SwiftFlutterSocketPlugin()
+    let instance = SwiftFlutterSocketPlugin(registrar)
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-
+    FlutterSocket.sharedInstance.createChannel(registrar: registrar)
     if call.method == "createSocket" {
         let isSuccess:Bool = FlutterSocket.sharedInstance.createSocket()
         result(isSuccess)
@@ -34,11 +41,18 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
 
     var heartTimer:Timer!
 
+    var methodChannel:FlutterMethodChannel!
 
     private override init() {
-
+        
     }
 
+    func createChannel(registrar: FlutterPluginRegistrar) -> Void {
+        if methodChannel == nil {
+            methodChannel = FlutterMethodChannel(name: "flutter_socket_plugin", binaryMessenger: registrar.messenger())
+        }
+    }
+    
     // MARK: create socket
     func createSocket() -> Bool {
         if socket == nil {

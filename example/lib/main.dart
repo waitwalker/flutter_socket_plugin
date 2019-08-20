@@ -28,7 +28,9 @@ class _MyAppState extends State<MyApp> {
     try {
       //platformVersion = await FlutterSocketPlugin.platformVersion;
 
-      FlutterSocket();
+      var result = await FlutterSocket.createSocket();
+      print(result);
+
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
     }
