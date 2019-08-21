@@ -46,50 +46,53 @@ class FlutterSocket {
 
   ///Store listeners
   Map<String, List<Function>> _listeners = {};
+  Map<String, Function> listeners = {};
 
-
-  ///listen to an event
-  on(String eventName, SocketEventListener listener) async {
-    if (_listeners[eventName] == null) {
-      _listeners[eventName] = [];
-      _channel.invokeMethod("on", {"eventName": eventName});
-    }
-    _listeners[eventName].add(listener);
-  }
 
   FlutterSocket() {
     _channel.setMethodCallHandler((call) async {
-      _handleData(call.method, call.arguments);
+
+      var method = call.method;
+      var arguments = call.arguments;
+      print("method:$method; arguments:$arguments");
+      _handleData(method, arguments);
     });
+  }
+
+  ///listen to an event
+  on(String methodName, SocketEventListener listener) async {
+    if (listeners[methodName] == null) {
+      _listeners[methodName] = [];
+      //_channel.invokeMethod("on", {"methodName": methodName});
+    }
+    _listeners[methodName].add(listener);
+  }
+
+  handle() {
+    print("handle");
   }
 
   ///Data listener called by platform API
-  _handleData(String eventName, List arguments) {
-    _listeners[eventName]?.forEach((Function listener) {
-      if (arguments.length == 0) {
-        arguments = [null];
-      } else {
-        arguments = arguments.map((_) {
-          try {
-            return jsonDecode(_);
-          } catch (e) {
-            return _;
-          }
-        }).toList();
-      }
-      Function.apply(listener, arguments);
-    });
+  _handleData(String methodName, var arguments) {
+
+    print("_listeners:${_listeners.length}");
+
+    for (var function in _listeners[methodName]) {
+      print(function);
+      /// 调用函数
+      Function.apply(function, [arguments]);
+    }
   }
 
 
 
-  static Future<bool> createSocket() async {
+  Future<bool> createSocket() async {
     return await _channel.invokeMethod("createSocket");
   }
 
   ///Listen to connect event
   onConnect(SocketEventListener listener) async {
-    await on(CONNECT, listener);
+    await on("didConnect", listener);
   }
 
   Future<void> tryConnect(String host, int port, int timeout) async {

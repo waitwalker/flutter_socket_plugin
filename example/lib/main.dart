@@ -14,9 +14,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
 
+  FlutterSocket flutterSocket;
+
   @override
   void initState() {
     super.initState();
+    flutterSocket = FlutterSocket();
     initPlatformState();
   }
 
@@ -28,8 +31,18 @@ class _MyAppState extends State<MyApp> {
     try {
       //platformVersion = await FlutterSocketPlugin.platformVersion;
 
-      var result = await FlutterSocket.createSocket();
+
+
+      var result = await flutterSocket.createSocket();
       print(result);
+
+      flutterSocket.tryConnect("192.168.8.120", 100007, 20000);
+      
+
+      flutterSocket.onConnect((data){
+        print("data:");
+      });
+
 
     } on PlatformException {
       platformVersion = 'Failed to get platform version.';
@@ -40,9 +53,9 @@ class _MyAppState extends State<MyApp> {
     // setState to update our non-existent appearance.
     if (!mounted) return;
 
-    setState(() {
-      _platformVersion = platformVersion;
-    });
+//    setState(() {
+//      _platformVersion = platformVersion;
+//    });
   }
 
   @override

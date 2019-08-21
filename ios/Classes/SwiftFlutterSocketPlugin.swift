@@ -22,6 +22,11 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
     if call.method == "createSocket" {
         let isSuccess:Bool = FlutterSocket.sharedInstance.createSocket()
         result(isSuccess)
+    } else if call.method == "tryConnect" {
+        
+        FlutterSocket.sharedInstance.tryConnect(host: "192.168.8.120", port: 10007, timeout: 20000)
+    } else if call.method == "" {
+        
     }
 
 
@@ -109,6 +114,7 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         addHeartTimer()
         connected = true
+        methodChannel.invokeMethod("didConnect", arguments: "connected")
     }
 
     // MARK: 读取数据
