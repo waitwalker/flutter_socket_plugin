@@ -158,6 +158,7 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         if message != nil {
             methodChannel.invokeMethod("receive_message", arguments: message)
         }
+        socket.readData(withTimeout: -1, tag: 0)
     }
 
     // MARK: 断开连接
