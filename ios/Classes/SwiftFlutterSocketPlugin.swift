@@ -19,14 +19,43 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     FlutterSocket.sharedInstance.createChannel(registrar: registrar)
-    if call.method == "createSocket" {
+    if call.method == "create_socket" {
         let isSuccess:Bool = FlutterSocket.sharedInstance.createSocket()
         result(isSuccess)
-    } else if call.method == "tryConnect" {
+    } else if call.method == "try_connect" {
         
-        FlutterSocket.sharedInstance.tryConnect(host: "192.168.8.120", port: 10007, timeout: 20000)
-    } else if call.method == "" {
+        if let arguments = call.arguments {
+            print("Flutter发给原生的参数:\(arguments)")
+            let dic = arguments as! [String:Any]
+            let host = dic["host"]
+            let port = dic["port"]
+            let timeout = dic["timeout"]
+            if host == nil || port == nil {
+                /// 调用错误invoke
+                FlutterSocket.sharedInstance.invoke(methodName: "connect_error", arguments: "Host or port is required.")
+            } else {
+                FlutterSocket.sharedInstance.tryConnect(host: host as! String, port: UInt16(port as! Int), timeout: timeout as! TimeInterval)
+            }
+        } else {
+            /// 调用错误invoke
+            FlutterSocket.sharedInstance.invoke(methodName: "connect_error", arguments: "Host or port is required.")
+        }
         
+    } else if call.method == "send_message" {
+        if let arguments = call.arguments {
+            print("Flutter发给原生的参数:\(arguments)")
+            let dic = arguments as! [String:Any]
+            let message = dic["message"]
+            if message == nil {
+                /// 调用错误invoke
+                FlutterSocket.sharedInstance.invoke(methodName: "send_error", arguments: "Sending content cannot be empty.")
+            } else {
+                FlutterSocket.sharedInstance.send(message: message as! String)
+            }
+        } else {
+            /// 调用错误invoke
+            FlutterSocket.sharedInstance.invoke(methodName: "send_error", arguments: "Sending content cannot be empty.")
+        }
     }
 
 
@@ -47,7 +76,7 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
     var heartTimer:Timer!
 
     var methodChannel:FlutterMethodChannel!
-
+    
     private override init() {
         
     }
@@ -72,7 +101,9 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         if socket != nil {
             do {
                 try socket.connect(toHost: host, onPort: port, viaInterface: nil, withTimeout: timeout)
-            } catch _ {
+            } catch (let error) {
+                print(error)
+                invoke(methodName: "connect_error", arguments: error.localizedDescription)
                 connected = false
             }
         } else {
@@ -96,6 +127,10 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
             socket.write(data, withTimeout: -1, tag: 0)
         }
     }
+    
+    func invoke(methodName:String,arguments:String) -> Void {
+        methodChannel.invokeMethod(methodName, arguments: arguments)
+    }
 
     // MARK: 添加心跳
     func addHeartTimer() -> Void {
@@ -109,12 +144,11 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         socket.write(data, withTimeout: -1, tag: 0)
     }
 
-
     // MARK: socket delegate: client did connect to server
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         addHeartTimer()
         connected = true
-        methodChannel.invokeMethod("didConnect", arguments: "connected")
+        methodChannel.invokeMethod("connected", arguments: "connected")
     }
 
     // MARK: 读取数据

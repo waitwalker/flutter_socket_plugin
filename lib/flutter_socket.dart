@@ -1,107 +1,156 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/services.dart';
 
-typedef void SocketEventListener(dynamic data);
+/// Call back closure
+typedef void CallBackClosure(dynamic data);
 
+///
+/// @Class: FlutterSocket
+/// @Description: FlutterSocket class
+/// @author: lca
+/// @Date: 2019-08-21
+///
 class FlutterSocket {
 
+  /// method channel
   static const MethodChannel _channel = const MethodChannel('flutter_socket_plugin');
 
-  ///  Socket Connect event
-  static const String CONNECT = "connect";
+  /// Create socket
+  static const String create_socket = "create_socket";
 
-  ///  Socket Disconnect event
-  static const String DISCONNECT = "disconnect";
+  /// Socket try connect
+  static const String try_connect = "try_connect";
 
-  ///  Socket Connection Error event
-  static const String CONNECT_ERROR = "connect_error";
+  /// Socket connected
+  static const String connected = "connected";
 
-  ///  Socket Connection timeout event
-  static const String CONNECT_TIMEOUT = "connect_timeout";
+  ///  Socket connect error
+  static const String connect_error = "connect_error";
 
-  ///  Socket Error event
-  static const String ERROR = "error";
+  /// Socket send message
+  static const String send_message = "send_message";
 
-  ///  Socket Connecting event
-  static const String CONNECTING = "connecting";
-
-  ///  Socket Reconnect event
-  static const String RECONNECT = "reconnect";
-
-  ///  Socket Reconnect Error event
-  static const String RECONNECT_ERROR = "reconnect_error";
-
-  ///  Socket Reconnect Failed event
-  static const String RECONNECT_FAILED = "reconnect_failed";
-
-  ///  Socket Reconnecting event
-  static const String RECONNECTING = "reconnecting";
-
-  ///  Socket Ping event
-  static const String PING = "ping";
-
-  ///  Socket Pong event
-  static const String PONG = "pong";
-
-  ///Store listeners
-  Map<String, List<Function>> _listeners = {};
-  Map<String, Function> listeners = {};
+  /// _closures (key: methodName, value:CallBackClosure)
+  Map<String, Function> _closures = {};
 
 
+  ///
+  /// @Method: FlutterSocket()
+  /// @Parameter: 
+  /// @ReturnType: 
+  /// @Description: create instance
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
   FlutterSocket() {
     _channel.setMethodCallHandler((call) async {
-
       var method = call.method;
       var arguments = call.arguments;
       print("method:$method; arguments:$arguments");
-      _handleData(method, arguments);
+      _handleCallBack(method, arguments);
     });
   }
 
-  ///listen to an event
-  on(String methodName, SocketEventListener listener) async {
-    if (listeners[methodName] == null) {
-      _listeners[methodName] = [];
-      //_channel.invokeMethod("on", {"methodName": methodName});
-    }
-    _listeners[methodName].add(listener);
-  }
-
-  handle() {
-    print("handle");
-  }
-
-  ///Data listener called by platform API
-  _handleData(String methodName, var arguments) {
-
-    print("_listeners:${_listeners.length}");
-
-    for (var function in _listeners[methodName]) {
-      print(function);
-      /// 调用函数
-      Function.apply(function, [arguments]);
-    }
+  ///
+  /// @Method: _listen
+  /// @Parameter: String methodName, CallBackClosure closure
+  /// @ReturnType:
+  /// @Description: listen call back closure
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  _listen(String methodName, CallBackClosure closure) async {
+    _closures[methodName] = closure;
   }
 
 
+  ///
+  /// @Method: _handleCallBack
+  /// @Parameter: String methodName, var arguments
+  /// @ReturnType: null
+  /// @Description: handle native to flutter and call back to user
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  _handleCallBack(String methodName, var arguments) {
+    print("_listeners:${_closures.length}");
+    var function = _closures[methodName];
+    /// 调用函数
+    Function.apply(function, [arguments]);
+  }
 
+  ///
+  /// @Method: createSocket
+  /// @Parameter: null
+  /// @ReturnType: Future<bool>
+  /// @Description: create socket
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
   Future<bool> createSocket() async {
-    return await _channel.invokeMethod("createSocket");
+    return await _channel.invokeMethod(create_socket);
   }
 
-  ///Listen to connect event
-  onConnect(SocketEventListener listener) async {
-    await on("didConnect", listener);
-  }
-
-  Future<void> tryConnect(String host, int port, int timeout) async {
+  ///
+  /// @Method: tryConnect
+  /// @Parameter: String host, int port, int timeout
+  /// @ReturnType: Future<void>
+  /// @Description: try connect,to not time out use a negative time interval
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  Future<void> tryConnect(String host, int port, {timeout = 30}) async {
     Map arguments = {
       "host":host,
       "port":port,
       "timeout":timeout
     };
-    await _channel.invokeMethod("tryConnect",arguments);
+    await _channel.invokeMethod(try_connect,arguments);
   }
+
+  ///
+  /// @Method: connectListener
+  /// @Parameter: CallBackClosure closure
+  /// @ReturnType: 
+  /// @Description: listen socket connect status
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  connectListener(CallBackClosure closure) async => await _listen(connected, closure);
+
+  ///
+  /// @Method: connectErrorListener
+  /// @Parameter: CallBackClosure closure
+  /// @ReturnType:
+  /// @Description: listen socket connect status
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  connectErrorListener(CallBackClosure closure) async => await _listen(connect_error, closure);
+  
+  ///
+  /// @Method: send
+  /// @Parameter: String message
+  /// @ReturnType:
+  /// @Description: send message
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  Future<void> send(String message) async {
+    await _channel.invokeMethod(send_message,{"message":message});
+  }
+
+  ///
+  /// @Method: sendErrorListener
+  /// @Parameter: CallBackClosure closure
+  /// @ReturnType:
+  /// @Description: listen socket send status
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  sendErrorListener(CallBackClosure closure) async => await _listen(connect_error, closure);
+  
+
+
 
 }

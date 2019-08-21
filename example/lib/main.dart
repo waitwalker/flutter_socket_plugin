@@ -1,74 +1,129 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/services.dart';
 import 'package:flutter_socket_plugin/flutter_socket_plugin.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(App());
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-
-  FlutterSocket flutterSocket;
-
-  @override
-  void initState() {
-    super.initState();
-    flutterSocket = FlutterSocket();
-    initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      //platformVersion = await FlutterSocketPlugin.platformVersion;
-
-
-
-      var result = await flutterSocket.createSocket();
-      print(result);
-
-      flutterSocket.tryConnect("192.168.8.120", 100007, 20000);
-      
-
-      flutterSocket.onConnect((data){
-        print("data:");
-      });
-
-
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-//    setState(() {
-//      _platformVersion = platformVersion;
-//    });
-  }
-
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
-        ),
+      title: "home",
+      home: HomePage(),
+      theme: ThemeData(primaryColor: Colors.lightGreen),
+    );
+  }
+}
+
+
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<Map> chatList = [];
+  TextEditingController textEditingController = TextEditingController();
+  FlutterSocket flutterSocket;
+  bool connected = false;
+
+  @override
+  void initState() {
+    textEditingController.addListener((){
+      print("text:${textEditingController.text}");
+    });
+    initSocket();
+    super.initState();
+  }
+
+  initSocket() async {
+    flutterSocket = FlutterSocket();
+    var result = await flutterSocket.createSocket();
+    print(result);
+    if (result == true) {
+
+      flutterSocket.tryConnect("192.168.8.120", 10007, timeout: 20);
+
+
+      flutterSocket.connectListener((data){
+        print("data:");
+        connected = true;
+      });
+
+      flutterSocket.connectErrorListener((data){
+        print(data);
+      });
+
+      flutterSocket.sendErrorListener((data){
+
+      });
+    }
+
+  }
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("开始聊天",style: TextStyle(fontSize: 18,color: Colors.white),),
+        backgroundColor: Colors.lightBlue,
       ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: itemBuilder,
+              itemCount: chatList.length,
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(top: 30,bottom: 30,left: 10,right: 10),
+            child: Container(
+              height: 200,
+              decoration: BoxDecoration(
+                  border: Border.all(width: 1,color: Colors.lightBlue)
+              ),
+              child: TextField(
+                controller: textEditingController,
+                decoration: InputDecoration(
+                    labelText: "输入内容在发送",
+                    border: InputBorder.none
+                ),
+              ),
+            ),
+          ),
+
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(child: Icon(Icons.send,size: 30,color: Colors.white,),onPressed: (){
+        if (connected) {
+          flutterSocket.send("hello socket");
+        }
+      },),
+    );
+  }
+
+  Widget itemBuilder(BuildContext buildContext, int index) {
+    return Column(
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            Icon(Icons.account_circle,size: 35,color: Colors.lime,),
+            Column(
+              children: <Widget>[
+                Text("张三",style: TextStyle(fontSize: 12,color: Colors.orangeAccent),),
+                Text("时间",style: TextStyle(fontSize: 10,color: Colors.deepPurpleAccent),),
+              ],
+            )
+          ],
+        ),
+        Text("内容",style: TextStyle(fontSize: 13,color: Colors.black),),
+      ],
     );
   }
 }
