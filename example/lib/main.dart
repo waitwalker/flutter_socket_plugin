@@ -62,6 +62,10 @@ class _HomePageState extends State<HomePage> {
       flutterSocket.receiveListener((data){
         print("receive data:$data");
       });
+
+      flutterSocket.disconnectListener((data){
+        print("disconnect data:$data");
+      });
     }
 
   }
@@ -106,7 +110,8 @@ class _HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton(child: Icon(Icons.send,size: 30,color: Colors.white,),onPressed: (){
         if (connected) {
-          flutterSocket.send("hello socket");
+          //flutterSocket.send("hello socket");
+          flutterSocket.tryDisconnect();
         }
       },),
     );

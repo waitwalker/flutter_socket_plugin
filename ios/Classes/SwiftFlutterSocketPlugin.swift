@@ -56,6 +56,8 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
             /// 调用错误invoke
             FlutterSocket.sharedInstance.invoke(methodName: "send_error", arguments: "Sending content cannot be empty.")
         }
+    } else if call.method == "try_disconnect" {
+        FlutterSocket.sharedInstance.tryDisconnect()
     }
 
 
@@ -169,6 +171,7 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         if heartTimer != nil {
             heartTimer.invalidate()
         }
+        methodChannel.invokeMethod("disconnect", arguments: "disconnected")
     }
 
 }

@@ -36,6 +36,12 @@ class FlutterSocket {
   /// Socket receive message
   static const String receive_message = "receive_message";
 
+  /// Socket try disconnect
+  static const String try_disconnect = "try_disconnect";
+
+  /// Socket disconnect
+  static const String disconnect = "disconnect";
+
   /// _closures (key: methodName, value:CallBackClosure)
   Map<String, Function> _closures = {};
 
@@ -165,6 +171,27 @@ class FlutterSocket {
   /// @Date: 2019-08-21
   ///
   receiveListener(CallBackClosure closure) async => await _listen(receive_message, closure);
+
+  /// @Method: tryDisconnect
+  /// @Parameter: null
+  /// @ReturnType: null
+  /// @Description: socket try disconnect
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  Future<void> tryDisconnect() async {
+    await _channel.invokeMethod(try_disconnect);
+  }
+
+  ///
+  /// @Method: disconnectListener
+  /// @Parameter: CallBackClosure closure
+  /// @ReturnType:
+  /// @Description: listen socket disconnect status
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  disconnectListener(CallBackClosure closure) async => await _listen(disconnect, closure);
   
 
 
