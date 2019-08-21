@@ -30,6 +30,12 @@ class FlutterSocket {
   /// Socket send message
   static const String send_message = "send_message";
 
+  /// Socket send error
+  static const String send_error = "send_error";
+
+  /// Socket receive message
+  static const String receive_message = "receive_message";
+
   /// _closures (key: methodName, value:CallBackClosure)
   Map<String, Function> _closures = {};
 
@@ -127,7 +133,7 @@ class FlutterSocket {
   /// @Date: 2019-08-21
   ///
   connectErrorListener(CallBackClosure closure) async => await _listen(connect_error, closure);
-  
+
   ///
   /// @Method: send
   /// @Parameter: String message
@@ -144,11 +150,21 @@ class FlutterSocket {
   /// @Method: sendErrorListener
   /// @Parameter: CallBackClosure closure
   /// @ReturnType:
-  /// @Description: listen socket send status
+  /// @Description: listen socket send error status
   /// @author: lca
   /// @Date: 2019-08-21
   ///
-  sendErrorListener(CallBackClosure closure) async => await _listen(connect_error, closure);
+  sendErrorListener(CallBackClosure closure) async => await _listen(send_error, closure);
+
+  ///
+  /// @Method: receiveListener
+  /// @Parameter: CallBackClosure closure
+  /// @ReturnType:
+  /// @Description: listen socket receive message status
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  receiveListener(CallBackClosure closure) async => await _listen(receive_message, closure);
   
 
 

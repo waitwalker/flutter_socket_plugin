@@ -58,6 +58,10 @@ class _HomePageState extends State<HomePage> {
       flutterSocket.sendErrorListener((data){
 
       });
+
+      flutterSocket.receiveListener((data){
+        print("receive data:$data");
+      });
     }
 
   }

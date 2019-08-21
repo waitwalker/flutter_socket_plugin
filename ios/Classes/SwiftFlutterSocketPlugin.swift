@@ -148,13 +148,16 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         addHeartTimer()
         connected = true
+        socket.readData(withTimeout: -1, tag: 0)
         methodChannel.invokeMethod("connected", arguments: "connected")
     }
-
+    
     // MARK: 读取数据
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        let message:String = String(data: data, encoding: String.Encoding.utf8) ?? ""
-        print(message)
+        let message = String(data: data, encoding: String.Encoding.utf8)
+        if message != nil {
+            methodChannel.invokeMethod("receive_message", arguments: message)
+        }
     }
 
     // MARK: 断开连接
