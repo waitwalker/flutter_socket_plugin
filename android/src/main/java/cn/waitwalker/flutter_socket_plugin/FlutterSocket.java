@@ -28,10 +28,16 @@ import io.flutter.plugin.common.PluginRegistry;
 
 public class FlutterSocket {
 
+    /** connection info */
     private ConnectionInfo info;
+
+    /** socket */
     private IConnectionManager socket;
+
+    /** instance */
     private static FlutterSocket flutterSocket;
 
+    /** method channel */
     private MethodChannel methodChannel;
 
     private FlutterSocket() {}
@@ -50,6 +56,9 @@ public class FlutterSocket {
         }
     }
 
+    /**
+     * createChannel
+     * */
     public void createChannel(PluginRegistry.Registrar registrar) {
         if (methodChannel == null) {
             methodChannel = new MethodChannel(registrar.messenger(),"flutter_socket_plugin");
@@ -58,7 +67,6 @@ public class FlutterSocket {
 
     /**
      * create socket
-     *
      * */
     public void createSocket(String host, int port, int timeout) {
         info = new ConnectionInfo(host, port);
@@ -94,7 +102,6 @@ public class FlutterSocket {
 
     /**
      * try connect
-     *
      * */
     public void tryConnect() {
         if (!socket.isConnect()) {
@@ -103,7 +110,7 @@ public class FlutterSocket {
     }
 
     /**
-     * send
+     * send message
      * */
     public void send(String message) {
 
@@ -118,16 +125,22 @@ public class FlutterSocket {
         }
     }
 
+    /**
+     * try disconnect
+     * */
     public void tryDisconnect() {
         socket.disconnect();
     }
 
+    /**
+     * android invoke flutter method
+     * */
     public void invoke(String methodName, String arguments) {
         methodChannel.invokeMethod(methodName,arguments);
     }
 
     /**
-     * 监听socket状态
+     * listen socket status
      *
      * */
     private SocketActionAdapter adapter = new SocketActionAdapter() {
@@ -177,7 +190,6 @@ public class FlutterSocket {
             super.onSocketIOThreadShutdown(action, e);
         }
     };
-
 
     public void clearSendSocketData() {
         flutterSocket = null;
