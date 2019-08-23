@@ -63,6 +63,12 @@ class _HomePageState extends State<HomePage> {
 
     flutterSocket.receiveListener((data){
       print("receive listener data:$data");
+      if (data != null) {
+        receiveMessage = receiveMessage + "\n" + data;
+      }
+      setState(() {
+
+      });
     });
 
     flutterSocket.disconnectListener((data){
