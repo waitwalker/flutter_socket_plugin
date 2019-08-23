@@ -2,11 +2,14 @@ import Flutter
 import UIKit
 import CocoaAsyncSocket 
 
-
+// MARK: Flutter socket plugin
 public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
     
     var registrar: FlutterPluginRegistrar
     
+    /// init function
+    ///
+    /// - Parameter _registrar: FlutterPluginRegistrar
     init(_ _registrar: FlutterPluginRegistrar){
         registrar = _registrar
     }
@@ -20,28 +23,32 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
     FlutterSocket.sharedInstance.createChannel(registrar: registrar)
     if call.method == "create_socket" {
-        let isSuccess:Bool = FlutterSocket.sharedInstance.createSocket()
-        result(isSuccess)
-    } else if call.method == "try_connect" {
         
         if let arguments = call.arguments {
-            print("Flutter发给原生的参数:\(arguments)")
             let dic = arguments as! [String:Any]
             let host = dic["host"]
             let port = dic["port"]
             let timeout = dic["timeout"]
             if host == nil || port == nil {
+                
                 /// 调用错误invoke
                 let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Host or port is required."])
                 FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
             } else {
-                FlutterSocket.sharedInstance.tryConnect(host: host as! String, port: UInt16(port as! Int), timeout: timeout as! TimeInterval)
+                FlutterSocket.sharedInstance.host = host as? String
+                FlutterSocket.sharedInstance.port = UInt16(port as! Int)
+                FlutterSocket.sharedInstance.timeout = timeout == nil ? 20 : (timeout as! TimeInterval)
+                let createResult:Bool = FlutterSocket.sharedInstance.createSocket()
+                result(createResult)
             }
         } else {
             /// 调用错误invoke
             let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Host or port is required."])
             FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
         }
+    } else if call.method == "try_connect" {
+        
+        FlutterSocket.sharedInstance.tryConnect(host: FlutterSocket.sharedInstance.host, port: FlutterSocket.sharedInstance.port, timeout: FlutterSocket.sharedInstance.timeout)
         
     } else if call.method == "send_message" {
         if let arguments = call.arguments {
@@ -63,12 +70,10 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
     } else if call.method == "try_disconnect" {
         FlutterSocket.sharedInstance.tryDisconnect()
     }
-
-
   }
 }
 
-
+// MARK: Flutter socket class
 class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
 
     /// 单例
@@ -77,24 +82,41 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
     /// 是否连接
     var connected:Bool = false
 
+    /// GCDAsyncSocket
     var socket:GCDAsyncSocket!
-
+    
+    /// heart 
     var heartTimer:Timer!
 
+    /// method channel
     var methodChannel:FlutterMethodChannel!
     
-    private override init() {
-        
-    }
+    /// host
+    var host:String!
+    
+    /// port
+    var port:UInt16!
+    
+    /// timeout
+    var timeout:TimeInterval = 30
+    
+    private override init() {}
 
-    func createChannel(registrar: FlutterPluginRegistrar) -> Void {
+    
+    /// create method channel
+    ///
+    /// - Parameter registrar: FlutterPluginRegistrar
+    public func createChannel(registrar: FlutterPluginRegistrar) -> Void {
         if methodChannel == nil {
             methodChannel = FlutterMethodChannel(name: "flutter_socket_plugin", binaryMessenger: registrar.messenger())
         }
     }
     
-    // MARK: create socket
-    func createSocket() -> Bool {
+    
+    /// create socket
+    ///
+    /// - Returns: create is successful
+    public func createSocket() -> Bool {
         if socket == nil {
             socket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
             return true
@@ -102,8 +124,13 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         return false
     }
 
-    // MARK: 尝试连接
-    func tryConnect(host:String,port:UInt16,timeout:TimeInterval) -> Void {
+    /// try connect to socket 
+    ///
+    /// - Parameters:
+    ///   - host: host,usually ip address or domain
+    ///   - port: port type is UInt16
+    ///   - timeout: timeout default 30s
+    public func tryConnect(host:String,port:UInt16,timeout:TimeInterval) -> Void {
         if socket != nil {
             do {
                 try socket.connect(toHost: host, onPort: port, viaInterface: nil, withTimeout: timeout)
@@ -118,8 +145,8 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         }
     }
 
-    // MARK: 尝试断开连接
-    func tryDisconnect() -> Void {
+    /// try disconnect to socket
+    public func tryDisconnect() -> Void {
         if socket != nil {
             socket.disconnect()
         } else {
@@ -127,20 +154,27 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         }
     }
 
-    // MARK: 发消息
-    func send(message:String) -> Void {
+    /// send message only support string type at this time
+    ///
+    /// - Parameter message: message
+    public func send(message:String) -> Void {
         if connected {
             let data:Data = message.data(using: String.Encoding.utf8)!
             socket.write(data, withTimeout: -1, tag: 0)
         }
     }
     
-    func invoke(methodName:String,arguments:String) -> Void {
+    /// ios invokes flutter method and transfers arguments
+    ///
+    /// - Parameters:
+    ///   - methodName: methodName 
+    ///   - arguments: arguments
+    public func invoke(methodName:String,arguments:String) -> Void {
         methodChannel.invokeMethod(methodName, arguments: arguments)
     }
-
-    // MARK: 添加心跳
-    func addHeartTimer() -> Void {
+    
+    /// add heart
+    private func addHeartTimer() -> Void {
         heartTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(heartAction), userInfo: nil, repeats: true)
         RunLoop.current.add(heartTimer, forMode: RunLoopMode.commonModes)
     }
@@ -150,8 +184,16 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         let data:Data = heartString.data(using: String.Encoding.utf8)!
         socket.write(data, withTimeout: -1, tag: 0)
     }
-
-    // MARK: socket delegate: client did connect to server
+    
+    
+    
+    
+    /// GCDAsyncSocket didConnect call back
+    ///
+    /// - Parameters:
+    ///   - sock: GCDAsyncSocket
+    ///   - host: host
+    ///   - port: port
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         addHeartTimer()
         connected = true
@@ -159,7 +201,12 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         methodChannel.invokeMethod("connected", arguments: "connected")
     }
     
-    // MARK: 读取数据
+    /// GCDAsyncSocket didRead call back
+    ///
+    /// - Parameters:
+    ///   - sock: GCDAsyncSocket
+    ///   - data: data
+    ///   - tag: tag
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         let message = String(data: data, encoding: String.Encoding.utf8)
         if message != nil {
@@ -168,7 +215,11 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         socket.readData(withTimeout: -1, tag: 0)
     }
 
-    // MARK: 断开连接
+    /// GCDAsyncSocket didDisconnect call back
+    ///
+    /// - Parameters:
+    ///   - sock: GCDAsyncSocket
+    ///   - err: error
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         socket.delegate = nil
         socket = nil
@@ -181,19 +232,17 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
 
 }
 
-// MARK: 字符编码类
+// MARK: encoder dictionary to json string
 class EncoderTool: NSObject {
     
-    
-    /// 字典转json字符串
+    /// dictionary to json
     ///
-    /// - Parameter dictionary: 字典
-    /// - Returns: 字符串
+    /// - Parameter dictionary: dictionary
+    /// - Returns: json string
     static func encodeWithDictionary(dictionary:[String:Any]) -> String {
         if (!JSONSerialization.isValidJSONObject(dictionary)) {
             return ""
         }
-        
         if let jsonData = try? JSONSerialization.data(
             withJSONObject: dictionary, 
             options: []) {

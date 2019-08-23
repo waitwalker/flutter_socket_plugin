@@ -4,10 +4,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e19341-6a67-482e-ab53-b36190c877be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_socket_plugin/ios/Classes/SwiftFlutterSocketPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_socket_plugin/ios/Classes/SwiftFlutterSocketPlugin.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftFlutterSocketPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftFlutterSocketPlugin.swift" afterDir="false" />
-    </list>
+    <list default="true" id="e3e19341-6a67-482e-ab53-b36190c877be" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
@@ -39,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+            <state relative-caret-position="63">
+              <caret line="100" column="6" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -148,24 +145,8 @@
             <path>
               <item name="flutter_socket_plugin" type="b2602c69:ProjectViewProjectNode" />
               <item name="flutter_socket_plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_socket_plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_socket_plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_socket_plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_socket_plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="ios" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="flutter_socket_plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="flutter_socket_plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="ios" type="462c0819:PsiDirectoryNode" />
-              <item name="Classes" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="flutter_socket_plugin" type="b2602c69:ProjectViewProjectNode" />
@@ -237,7 +218,7 @@
       <window_info anchor="bottom" id="Catdea" order="3" />
       <window_info anchor="bottom" id="Android Profiler" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="5" weight="0.32954547" />
-      <window_info anchor="bottom" id="Debug" order="6" weight="0.48142645" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.2971768" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.44923076" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3286385" />
       <window_info anchor="bottom" id="Flutter Performance" order="9" side_tool="true" />
@@ -369,8 +350,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
+        <state relative-caret-position="63">
+          <caret line="100" column="6" selection-start-line="100" selection-start-column="6" selection-end-line="100" selection-end-column="6" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
