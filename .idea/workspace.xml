@@ -7,7 +7,6 @@
     <list default="true" id="e3e19341-6a67-482e-ab53-b36190c877be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/FlutterSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/FlutterSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/FlutterSocketPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/FlutterSocketPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftFlutterSocketPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftFlutterSocketPlugin.swift" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -72,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ios/Classes/SwiftFlutterSocketPlugin.swift">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2655">
-              <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
+            <state relative-caret-position="2610">
+              <caret line="174" column="30" selection-start-line="174" selection-start-column="30" selection-end-line="174" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -257,6 +256,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="150" y="23" width="1291" height="765" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.31305045" />
       <window_info id="Captures" order="1" side_tool="true" />
@@ -375,8 +375,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ios/Classes/SwiftFlutterSocketPlugin.swift">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2655">
-          <caret line="177" column="30" selection-start-line="177" selection-start-column="30" selection-end-line="177" selection-end-column="30" />
+        <state relative-caret-position="2610">
+          <caret line="174" column="30" selection-start-line="174" selection-start-column="30" selection-end-line="174" selection-end-column="30" />
         </state>
       </provider>
     </entry>

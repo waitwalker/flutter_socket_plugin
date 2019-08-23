@@ -1,5 +1,6 @@
 package cn.waitwalker.flutter_socket_plugin;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import io.flutter.Log;
@@ -37,10 +38,37 @@ public class FlutterSocketPlugin implements MethodCallHandler {
           FlutterSocket.sharedInstance().createSocket(host,port,timeout);
         } else {
 
+          Map<String, String> hashMap = new HashMap<>();
+          hashMap.put("error_message","Host or port is required.");
+          FlutterSocket.sharedInstance().invoke("error",hashMap.toString());
         }
       } else {
-
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("error_message","Host or port is required.");
+        FlutterSocket.sharedInstance().invoke("error",hashMap.toString());
       }
+
+    } else if (call.method.equals("try_connect")) {
+      FlutterSocket.sharedInstance().tryConnect();
+
+    } else if (call.method.equals("send_message")) {
+      Map dic = (Map) call.arguments;
+      if (dic.containsKey("message")) {
+        String message = (String) dic.get("message");
+        if (message != null) {
+          FlutterSocket.sharedInstance().send(message);
+        } else {
+          Map<String, String> hashMap = new HashMap<>();
+          hashMap.put("error_message","Sending content cannot be empty.");
+          FlutterSocket.sharedInstance().invoke("error",hashMap.toString());
+        }
+      } else {
+        Map<String, String> hashMap = new HashMap<>();
+        hashMap.put("error_message","Sending content cannot be empty.");
+        FlutterSocket.sharedInstance().invoke("error",hashMap.toString());
+      }
+
+    } else if (call.method.equals("create_socket")) {
 
     } else {
       result.notImplemented();

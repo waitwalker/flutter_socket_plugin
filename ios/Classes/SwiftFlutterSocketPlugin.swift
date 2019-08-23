@@ -29,8 +29,6 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
             let port = dic["port"]
             let timeout = dic["timeout"]
             if host == nil || port == nil {
-                
-                /// 调用错误invoke
                 let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Host or port is required."])
                 FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
             } else {
@@ -40,7 +38,6 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
                 FlutterSocket.sharedInstance.createSocket()
             }
         } else {
-            /// 调用错误invoke
             let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Host or port is required."])
             FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
         }
@@ -50,18 +47,15 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
         
     } else if call.method == "send_message" {
         if let arguments = call.arguments {
-            print("Flutter发给原生的参数:\(arguments)")
             let dic = arguments as! [String:Any]
             let message = dic["message"]
             if message == nil {
-                /// 调用错误invoke
                 let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Sending content cannot be empty."])
                 FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
             } else {
                 FlutterSocket.sharedInstance.send(message: message as! String)
             }
         } else {
-            /// 调用错误invoke
             let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Sending content cannot be empty."])
             FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
         }

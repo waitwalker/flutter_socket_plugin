@@ -88,9 +88,6 @@ public class FlutterSocket {
      *
      * */
     public void tryConnect() {
-        if (socket == null) {
-            return;
-        }
         if (!socket.isConnect()) {
             socket.connect();
         }
