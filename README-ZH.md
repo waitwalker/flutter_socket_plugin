@@ -108,6 +108,6 @@ FlutterSocket目前实现了客户端基本String消息的收发,未来在条件
 
 Please file feature requests and bugs at the [issue tracker][tracker].
 
-[tracker]: https://github.com/waitwalker/flutter_socket_plugin
+[tracker]: https://github.com/waitwalker/flutter_socket_plugin/issues
 
 
