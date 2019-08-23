@@ -31,4 +31,8 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
+
+    dependencies {
+        implementation 'com.tonystark.android:socket:4.1.0'
+    }
 }
