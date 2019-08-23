@@ -24,6 +24,9 @@ class FlutterSocket {
   /// Socket connected
   static const String connected = "connected";
 
+  ///  Socket error
+  static const String error = "error";
+
   ///  Socket connect error
   static const String connect_error = "connect_error";
 
@@ -44,7 +47,6 @@ class FlutterSocket {
 
   /// _closures (key: methodName, value:CallBackClosure)
   Map<String, Function> _closures = {};
-
 
   ///
   /// @Method: FlutterSocket()
@@ -74,7 +76,6 @@ class FlutterSocket {
   _listen(String methodName, CallBackClosure closure) async {
     _closures[methodName] = closure;
   }
-
 
   ///
   /// @Method: _handleCallBack
@@ -121,26 +122,6 @@ class FlutterSocket {
   }
 
   ///
-  /// @Method: connectListener
-  /// @Parameter: CallBackClosure closure
-  /// @ReturnType: 
-  /// @Description: listen socket connect status
-  /// @author: lca
-  /// @Date: 2019-08-21
-  ///
-  connectListener(CallBackClosure closure) async => await _listen(connected, closure);
-
-  ///
-  /// @Method: connectErrorListener
-  /// @Parameter: CallBackClosure closure
-  /// @ReturnType:
-  /// @Description: listen socket connect status
-  /// @author: lca
-  /// @Date: 2019-08-21
-  ///
-  connectErrorListener(CallBackClosure closure) async => await _listen(connect_error, closure);
-
-  ///
   /// @Method: send
   /// @Parameter: String message
   /// @ReturnType:
@@ -152,15 +133,36 @@ class FlutterSocket {
     await _channel.invokeMethod(send_message,{"message":message});
   }
 
-  ///
-  /// @Method: sendErrorListener
-  /// @Parameter: CallBackClosure closure
-  /// @ReturnType:
-  /// @Description: listen socket send error status
+  /// @Method: tryDisconnect
+  /// @Parameter: null
+  /// @ReturnType: null
+  /// @Description: socket try disconnect
   /// @author: lca
   /// @Date: 2019-08-21
   ///
-  sendErrorListener(CallBackClosure closure) async => await _listen(send_error, closure);
+  Future<void> tryDisconnect() async {
+    await _channel.invokeMethod(try_disconnect);
+  }
+
+  ///
+  /// @Method: connectListener
+  /// @Parameter: CallBackClosure closure
+  /// @ReturnType: 
+  /// @Description: listen socket connect status
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  connectListener(CallBackClosure closure) async => await _listen(connected, closure);
+
+  ///
+  /// @Method: errorListener
+  /// @Parameter: CallBackClosure closure
+  /// @ReturnType:
+  /// @Description: listen socket errors
+  /// @author: lca
+  /// @Date: 2019-08-21
+  ///
+  errorListener(CallBackClosure closure) async => await _listen(error, closure);
 
   ///
   /// @Method: receiveListener
@@ -172,16 +174,6 @@ class FlutterSocket {
   ///
   receiveListener(CallBackClosure closure) async => await _listen(receive_message, closure);
 
-  /// @Method: tryDisconnect
-  /// @Parameter: null
-  /// @ReturnType: null
-  /// @Description: socket try disconnect
-  /// @author: lca
-  /// @Date: 2019-08-21
-  ///
-  Future<void> tryDisconnect() async {
-    await _channel.invokeMethod(try_disconnect);
-  }
 
   ///
   /// @Method: disconnectListener

@@ -45,18 +45,13 @@ class _HomePageState extends State<HomePage> {
 
       flutterSocket.tryConnect("192.168.8.120", 10007, timeout: 20);
 
-
       flutterSocket.connectListener((data){
         print("data:");
         connected = true;
       });
 
-      flutterSocket.connectErrorListener((data){
+      flutterSocket.errorListener((data){
         print(data);
-      });
-
-      flutterSocket.sendErrorListener((data){
-
       });
 
       flutterSocket.receiveListener((data){

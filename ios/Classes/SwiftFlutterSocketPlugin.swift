@@ -32,7 +32,7 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
             let timeout = dic["timeout"]
             if host == nil || port == nil {
                 /// 调用错误invoke
-                FlutterSocket.sharedInstance.invoke(methodName: "connect_error", arguments: "Host or port is required.")
+                FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: ["error_message":"Host or port is required."])
             } else {
                 FlutterSocket.sharedInstance.tryConnect(host: host as! String, port: UInt16(port as! Int), timeout: timeout as! TimeInterval)
             }
