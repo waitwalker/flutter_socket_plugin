@@ -7,7 +7,7 @@ typedef void CallBackClosure(dynamic data);
 ///
 /// @Class: FlutterSocket
 /// @Description: FlutterSocket class
-/// @author: lca
+/// @author: waitwalker
 /// @Date: 2019-08-21
 ///
 class FlutterSocket {
@@ -53,7 +53,7 @@ class FlutterSocket {
   /// @Parameter: 
   /// @ReturnType: 
   /// @Description: create instance
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   FlutterSocket() {
@@ -70,7 +70,7 @@ class FlutterSocket {
   /// @Parameter: String methodName, CallBackClosure closure
   /// @ReturnType:
   /// @Description: listen call back closure
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   _listen(String methodName, CallBackClosure closure) async {
@@ -82,7 +82,7 @@ class FlutterSocket {
   /// @Parameter: String methodName, var arguments
   /// @ReturnType: null
   /// @Description: handle native to flutter and call back to user
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   _handleCallBack(String methodName, var arguments) {
@@ -97,7 +97,7 @@ class FlutterSocket {
   /// @Parameter: null
   /// @ReturnType: Future<bool>
   /// @Description: create socket
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   Future<bool> createSocket(String host, int port, {timeout = 30}) async {
@@ -114,7 +114,7 @@ class FlutterSocket {
   /// @Parameter: String host, int port, int timeout
   /// @ReturnType: Future<void>
   /// @Description: try connect,to not time out use a negative time interval
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   Future<void> tryConnect() async {
@@ -126,7 +126,7 @@ class FlutterSocket {
   /// @Parameter: String message
   /// @ReturnType:
   /// @Description: send message
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   Future<void> send(String message) async {
@@ -137,7 +137,7 @@ class FlutterSocket {
   /// @Parameter: null
   /// @ReturnType: null
   /// @Description: socket try disconnect
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   Future<void> tryDisconnect() async {
@@ -149,7 +149,7 @@ class FlutterSocket {
   /// @Parameter: CallBackClosure closure
   /// @ReturnType: 
   /// @Description: listen socket connect status
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   connectListener(CallBackClosure closure) async => await _listen(connected, closure);
@@ -159,7 +159,7 @@ class FlutterSocket {
   /// @Parameter: CallBackClosure closure
   /// @ReturnType:
   /// @Description: listen socket errors
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   errorListener(CallBackClosure closure) async => await _listen(error, closure);
@@ -169,7 +169,7 @@ class FlutterSocket {
   /// @Parameter: CallBackClosure closure
   /// @ReturnType:
   /// @Description: listen socket receive message status
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   receiveListener(CallBackClosure closure) async => await _listen(receive_message, closure);
@@ -180,7 +180,7 @@ class FlutterSocket {
   /// @Parameter: CallBackClosure closure
   /// @ReturnType:
   /// @Description: listen socket disconnect status
-  /// @author: lca
+  /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
   disconnectListener(CallBackClosure closure) async => await _listen(disconnect, closure);
