@@ -32,13 +32,15 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
             let timeout = dic["timeout"]
             if host == nil || port == nil {
                 /// 调用错误invoke
-                FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: ["error_message":"Host or port is required."])
+                let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Host or port is required."])
+                FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
             } else {
                 FlutterSocket.sharedInstance.tryConnect(host: host as! String, port: UInt16(port as! Int), timeout: timeout as! TimeInterval)
             }
         } else {
             /// 调用错误invoke
-            FlutterSocket.sharedInstance.invoke(methodName: "connect_error", arguments: "Host or port is required.")
+            let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Host or port is required."])
+            FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
         }
         
     } else if call.method == "send_message" {
@@ -48,13 +50,15 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
             let message = dic["message"]
             if message == nil {
                 /// 调用错误invoke
-                FlutterSocket.sharedInstance.invoke(methodName: "send_error", arguments: "Sending content cannot be empty.")
+                let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Sending content cannot be empty."])
+                FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
             } else {
                 FlutterSocket.sharedInstance.send(message: message as! String)
             }
         } else {
             /// 调用错误invoke
-            FlutterSocket.sharedInstance.invoke(methodName: "send_error", arguments: "Sending content cannot be empty.")
+            let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":"Sending content cannot be empty."])
+            FlutterSocket.sharedInstance.invoke(methodName: "error", arguments: str)
         }
     } else if call.method == "try_disconnect" {
         FlutterSocket.sharedInstance.tryDisconnect()
@@ -105,7 +109,8 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
                 try socket.connect(toHost: host, onPort: port, viaInterface: nil, withTimeout: timeout)
             } catch (let error) {
                 print(error)
-                invoke(methodName: "connect_error", arguments: error.localizedDescription)
+                let str = EncoderTool.encodeWithDictionary(dictionary: ["error_message":error.localizedDescription])
+                invoke(methodName: "error", arguments: str)
                 connected = false
             }
         } else {
@@ -174,4 +179,32 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
         methodChannel.invokeMethod("disconnect", arguments: "disconnected")
     }
 
+}
+
+// MARK: 字符编码类
+class EncoderTool: NSObject {
+    
+    
+    /// 字典转json字符串
+    ///
+    /// - Parameter dictionary: 字典
+    /// - Returns: 字符串
+    static func encodeWithDictionary(dictionary:[String:Any]) -> String {
+        if (!JSONSerialization.isValidJSONObject(dictionary)) {
+            return ""
+        }
+        
+        if let jsonData = try? JSONSerialization.data(
+            withJSONObject: dictionary, 
+            options: []) {
+            let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
+            if let str = jsonString {
+                return str
+            } else {
+                return ""
+            }
+        } else {
+            return ""
+        }
+    }
 }
