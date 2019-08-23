@@ -5,7 +5,7 @@
 # FlutterSocket
 
 [![build status](https://img.shields.io/travis/flutterchina/dio/vm.svg?style=flat-square)](https://waitwalker.cn/2019/08/15/%E4%BA%A4%E6%B5%81%E7%BE%A4%E7%BB%84/)
-[![Pub](https://img.shields.io/pub/v/dio.svg?style=flat-square)](https://waitwalker.cn/2019/08/15/%E4%BA%A4%E6%B5%81%E7%BE%A4%E7%BB%84/)
+[![Pub](https://img.shields.io/pub/v/flutter_socket_plugin.svg?style=flat-square)](https://pub.dartlang.org/packages/flutter_socket_plugin)
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://waitwalker.cn/2019/08/15/%E4%BA%A4%E6%B5%81%E7%BE%A4%E7%BB%84/)
 
 
