@@ -4,9 +4,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3e19341-6a67-482e-ab53-b36190c877be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/FlutterSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/FlutterSocket.java" afterDir="false" />
-    </list>
+    <list default="true" id="e3e19341-6a67-482e-ab53-b36190c877be" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
     <ignored path="$PROJECT_DIR$/.pub/" />
