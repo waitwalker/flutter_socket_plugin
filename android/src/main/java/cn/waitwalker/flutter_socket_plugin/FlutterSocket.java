@@ -21,11 +21,16 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
 
+import io.flutter.plugin.common.MethodChannel;
+import io.flutter.plugin.common.PluginRegistry;
+
 public class FlutterSocket {
 
     private ConnectionInfo info;
     private IConnectionManager socket;
     private static FlutterSocket flutterSocket;
+
+    private MethodChannel methodChannel;
 
     private FlutterSocket() {
 
@@ -36,17 +41,22 @@ public class FlutterSocket {
         return SingletonHolder.instance();
     }
 
-    String uri = "192.168.8.120";
+    public void createChannel(PluginRegistry.Registrar registrar) {
+        if (methodChannel == null) {
+            methodChannel = new MethodChannel(registrar.messenger(),"flutter_socket_plugin");
+        }
+    }
 
     /**
      * create socket
      *
      * */
-    public void createSocket() {
-        info = new ConnectionInfo(uri, 10007);
+    public void createSocket(String host, int port, int timeout) {
+        info = new ConnectionInfo(host, port);
         final Handler handler = new Handler(Looper.getMainLooper());
         OkSocketOptions.Builder builder = new OkSocketOptions.Builder();
         builder.setReconnectionManager(new NoneReconnect());
+        builder.setConnectTimeoutSecond(timeout);
         builder.setCallbackThreadModeToken(new OkSocketOptions.ThreadModeToken() {
             @Override
             public void handleCallbackEvent(ActionDispatcher.ActionRunnable runnable) {
@@ -104,6 +114,10 @@ public class FlutterSocket {
 
     public void tryDisconnect() {
         socket.disconnect();
+    }
+
+    public void invoke(String methodName, String arguments) {
+        methodChannel.invokeMethod(methodName,arguments);
     }
 
     /**

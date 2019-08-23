@@ -18,12 +18,11 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
     let channel = FlutterMethodChannel(name: "flutter_socket_plugin", binaryMessenger: registrar.messenger())
     let instance = SwiftFlutterSocketPlugin(registrar)
     registrar.addMethodCallDelegate(instance, channel: channel)
+    FlutterSocket.sharedInstance.createChannel(registrar: registrar)
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    FlutterSocket.sharedInstance.createChannel(registrar: registrar)
     if call.method == "create_socket" {
-        
         if let arguments = call.arguments {
             let dic = arguments as! [String:Any]
             let host = dic["host"]
@@ -38,8 +37,7 @@ public class SwiftFlutterSocketPlugin: NSObject, FlutterPlugin {
                 FlutterSocket.sharedInstance.host = host as? String
                 FlutterSocket.sharedInstance.port = UInt16(port as! Int)
                 FlutterSocket.sharedInstance.timeout = timeout == nil ? 20 : (timeout as! TimeInterval)
-                let createResult:Bool = FlutterSocket.sharedInstance.createSocket()
-                result(createResult)
+                FlutterSocket.sharedInstance.createSocket()
             }
         } else {
             /// 调用错误invoke
@@ -116,12 +114,10 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
     /// create socket
     ///
     /// - Returns: create is successful
-    public func createSocket() -> Bool {
+    public func createSocket() -> Void {
         if socket == nil {
             socket = GCDAsyncSocket(delegate: self, delegateQueue: DispatchQueue.main)
-            return true
         }
-        return false
     }
 
     /// try connect to socket 
