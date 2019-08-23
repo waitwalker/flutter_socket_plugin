@@ -68,8 +68,8 @@ public class FlutterSocketPlugin implements MethodCallHandler {
         FlutterSocket.sharedInstance().invoke("error",hashMap.toString());
       }
 
-    } else if (call.method.equals("create_socket")) {
-
+    } else if (call.method.equals("try_disconnect")) {
+      FlutterSocket.sharedInstance().tryDisconnect();
     } else {
       result.notImplemented();
     }

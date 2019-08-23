@@ -20,6 +20,8 @@ import com.xuhao.didi.socket.client.sdk.client.connection.NoneReconnect;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.Map;
 
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
@@ -32,13 +34,20 @@ public class FlutterSocket {
 
     private MethodChannel methodChannel;
 
-    private FlutterSocket() {
+    private FlutterSocket() {}
 
-    }
-
-    /*单例*/
+    /** Singleton*/
     public static FlutterSocket sharedInstance() {
         return SingletonHolder.instance();
+    }
+
+    private static class SingletonHolder {
+        public static FlutterSocket instance() {
+            if (flutterSocket == null) {
+                flutterSocket = new FlutterSocket();
+            }
+            return flutterSocket;
+        }
     }
 
     public void createChannel(PluginRegistry.Registrar registrar) {
@@ -125,38 +134,32 @@ public class FlutterSocket {
 
         @Override
         public void onSocketConnectionSuccess(ConnectionInfo info, String action) {
-            //socket.send(new HandShakeBean());
-            Log.d("Connect","have connected");
+            invoke("connected","connected");
         }
 
         @Override
         public void onSocketDisconnection(ConnectionInfo info, String action, Exception e) {
             if (e != null) {
-                Log.d("Disconnect","disconnected error");
+                FlutterSocket.sharedInstance().invoke("error",e.getLocalizedMessage());
             } else {
-                Log.d("Disconnect","have disconnected");
+                invoke("disconnect","disconnected");
             }
         }
 
         @Override
         public void onSocketConnectionFailed(ConnectionInfo info, String action, Exception e) {
-            Log.d("Connect","connected error");
+            FlutterSocket.sharedInstance().invoke("error",e.getLocalizedMessage());
         }
 
         @Override
         public void onSocketReadResponse(ConnectionInfo info, String action, OriginalData data) {
-
-            byte[] bodyBytes  = data.getBodyBytes();
-            byte[] headBytes = data.getHeadBytes();
-
-            String string = new String(data.getHeadBytes(), Charset.forName("utf-8"));
             String str = new String(data.getBodyBytes(), Charset.forName("utf-8"));
             Log.d("Receive",str);
+            invoke("receive_message",str);
         }
 
         @Override
         public void onSocketWriteResponse(ConnectionInfo info, String action, ISendable data) {
-
             MsgDataBean msgDataBean = (MsgDataBean) data;
             String str = msgDataBean.content;
             Log.d("Write response",str);
@@ -170,8 +173,7 @@ public class FlutterSocket {
 
         @Override
         public void onSocketIOThreadShutdown(String action, Exception e) {
-
-            Log.d("Exception",e.getLocalizedMessage());
+            FlutterSocket.sharedInstance().invoke("error",e.getLocalizedMessage());
             super.onSocketIOThreadShutdown(action, e);
         }
     };
@@ -179,14 +181,5 @@ public class FlutterSocket {
 
     public void clearSendSocketData() {
         flutterSocket = null;
-    }
-
-    private static class SingletonHolder {
-        public static FlutterSocket instance() {
-            if (flutterSocket == null) {
-                flutterSocket = new FlutterSocket();
-            }
-            return flutterSocket;
-        }
     }
 }
