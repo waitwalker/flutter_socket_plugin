@@ -110,4 +110,9 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 [tracker]: https://github.com/waitwalker/flutter_socket_plugin/issues
 
+## Flutter技术及其他交流群组
+
+扫描👇二维码:
+
+<img src="https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development_0828.JPG?raw=true" width="350" height="500" align=center />
 
