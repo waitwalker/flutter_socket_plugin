@@ -39,11 +39,11 @@ class _HomePageState extends State<HomePage> {
 
   initSocket() async {
     flutterSocket = FlutterSocket();
-    var result = await flutterSocket.createSocket();
+    var result = await flutterSocket.createSocket("192.168.8.120", 10007, timeout: 20);
     print(result);
     if (result == true) {
 
-      flutterSocket.tryConnect("192.168.8.120", 10007, timeout: 20);
+      flutterSocket.tryConnect();
 
       flutterSocket.connectListener((data){
         print("data:");

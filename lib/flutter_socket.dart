@@ -100,8 +100,13 @@ class FlutterSocket {
   /// @author: lca
   /// @Date: 2019-08-21
   ///
-  Future<bool> createSocket() async {
-    return await _channel.invokeMethod(create_socket);
+  Future<bool> createSocket(String host, int port, {timeout = 30}) async {
+    Map arguments = {
+      "host":host,
+      "port":port,
+      "timeout":timeout
+    };
+    return await _channel.invokeMethod(create_socket,arguments);
   }
 
   ///
@@ -112,13 +117,8 @@ class FlutterSocket {
   /// @author: lca
   /// @Date: 2019-08-21
   ///
-  Future<void> tryConnect(String host, int port, {timeout = 30}) async {
-    Map arguments = {
-      "host":host,
-      "port":port,
-      "timeout":timeout
-    };
-    await _channel.invokeMethod(try_connect,arguments);
+  Future<void> tryConnect() async {
+    await _channel.invokeMethod(try_connect);
   }
 
   ///
