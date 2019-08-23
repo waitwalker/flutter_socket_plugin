@@ -23,45 +23,51 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Map> chatList = [];
+
   TextEditingController textEditingController = TextEditingController();
+
   FlutterSocket flutterSocket;
   bool connected = false;
+  String _host = "192.168.8.120";
+  int _port = 10007;
+  String receiveMessage = "";
 
   @override
   void initState() {
-    textEditingController.addListener((){
-      print("text:${textEditingController.text}");
-    });
     initSocket();
+    textEditingController.addListener((){
+      print("input text:${textEditingController.text}");
+    });
     super.initState();
   }
 
-  initSocket() async {
+  ///
+  /// @Method: initSocket
+  /// @Parameter:
+  /// @ReturnType:
+  /// @Description: init socket
+  /// @author: waitwalker
+  /// @Date: 2019-08-23
+  ///
+  initSocket() {
     flutterSocket = FlutterSocket();
-    var result = await flutterSocket.createSocket("192.168.8.120", 10007, timeout: 20);
-    print(result);
-    if (result == true) {
 
-      flutterSocket.tryConnect();
+    flutterSocket.connectListener((data){
+      print("connect listener data:$data");
+    });
 
-      flutterSocket.connectListener((data){
-        print("data:");
-        connected = true;
-      });
+    flutterSocket.errorListener((data){
+      print("error listener data:$data");
+    });
 
-      flutterSocket.errorListener((data){
-        print(data);
-      });
 
-      flutterSocket.receiveListener((data){
-        print("receive data:$data");
-      });
+    flutterSocket.receiveListener((data){
+      print("receive listener data:$data");
+    });
 
-      flutterSocket.disconnectListener((data){
-        print("disconnect data:$data");
-      });
-    }
+    flutterSocket.disconnectListener((data){
+      print("disconnect listener data:$data");
+    });
 
   }
 
@@ -70,64 +76,123 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("开始聊天",style: TextStyle(fontSize: 18,color: Colors.white),),
+        title: Text("FlutterSocket",style: TextStyle(fontSize: 18,color: Colors.white),),
         backgroundColor: Colors.lightBlue,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
 
-          Expanded(
-            child: ListView.builder(
-              itemBuilder: itemBuilder,
-              itemCount: chatList.length,
+          Padding(
+            padding: EdgeInsets.only(top: 30,left: 20,right: 20),
+            child: Row(
+              children: <Widget>[
+                Text("Host:",style: TextStyle(fontSize: 22,color: Colors.lightBlueAccent,fontWeight: FontWeight.w600),),
+                Padding(padding: EdgeInsets.only(left: 10),),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.redAccent,width: 1.0)),
+                  ),
+                  child: Text(_host,style: TextStyle(fontSize: 18,color: Colors.black87,fontWeight: FontWeight.w300),),
+                ),
+                Padding(padding: EdgeInsets.only(left: 30),),
+                Text("Port:",style: TextStyle(fontSize: 22,color: Colors.lightBlueAccent,fontWeight: FontWeight.w600),),
+                Padding(padding: EdgeInsets.only(left: 10),),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: Colors.redAccent,width: 1.0)),
+                  ),
+                  child: Text("$_port",style: TextStyle(fontSize: 18,color: Colors.black87,fontWeight: FontWeight.w300),),
+                ),
+              ],
             ),
           ),
 
           Padding(
-            padding: EdgeInsets.only(top: 30,bottom: 30,left: 10,right: 10),
+            padding: EdgeInsets.only(left: 20,right: 20,top: 30),
+            child: Row(
+              children: <Widget>[
+                RaisedButton(
+                  color: Colors.lightBlueAccent,
+                  child: Text("Create",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
+                  onPressed: () async {
+                    await flutterSocket.createSocket("192.168.8.120", 10007, timeout: 20);
+                  },
+                ),
+                Padding(padding: EdgeInsets.only(left: 20)),
+                RaisedButton(
+                  color: Colors.lightBlueAccent,
+                  child: Text("Connect",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
+                  onPressed: (){
+                    flutterSocket.tryConnect();
+                  },
+                ),
+                Padding(padding: EdgeInsets.only(left: 20)),
+                RaisedButton(
+                  color: Colors.lightBlueAccent,
+                  child: Text("Disconnect",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
+                  onPressed: (){
+                    flutterSocket.tryDisconnect();
+                  },
+                ),
+              ],
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(left: 20,right: 20,top: 30,),
             child: Container(
-              height: 200,
+              height: 150,
               decoration: BoxDecoration(
-                  border: Border.all(width: 1,color: Colors.lightBlue)
+                border: Border.all(color: Colors.lightBlueAccent,width: 1.0)
               ),
               child: TextField(
                 controller: textEditingController,
                 decoration: InputDecoration(
-                    labelText: "输入内容在发送",
-                    border: InputBorder.none
+                  labelText: "Input content",
+                  border: InputBorder.none
                 ),
               ),
             ),
           ),
 
+          Padding(
+            padding: EdgeInsets.only(left: 20,right: 20,top: 10),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: RaisedButton(
+                color: Colors.lightBlueAccent,
+                child: Text("Send",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
+                onPressed: (){
+                  flutterSocket.send(textEditingController.text);
+                },),
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(left: 20,right: 20,top: 30),
+            child: Container(
+              alignment: Alignment.centerLeft,
+              child: RaisedButton(
+                color: Colors.lightBlueAccent,
+                child: Text("Receive Data",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
+                onPressed: (){},),
+            ),
+          ),
+
+          Padding(
+            padding: EdgeInsets.only(left: 20,right: 20,top: 10),
+            child: Container(
+              height: 150,
+              width: MediaQuery.of(context).size.width - 40,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.lightBlueAccent,width: 1.0)
+              ),
+              child: Text(receiveMessage,style: TextStyle(fontSize: 15,color: Colors.lightBlueAccent,fontWeight: FontWeight.w500),),
+            ),
+          ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(child: Icon(Icons.send,size: 30,color: Colors.white,),onPressed: (){
-        if (connected) {
-          //flutterSocket.send("hello socket");
-          flutterSocket.tryDisconnect();
-        }
-      },),
     );
   }
 
-  Widget itemBuilder(BuildContext buildContext, int index) {
-    return Column(
-      children: <Widget>[
-        Row(
-          children: <Widget>[
-            Icon(Icons.account_circle,size: 35,color: Colors.lime,),
-            Column(
-              children: <Widget>[
-                Text("张三",style: TextStyle(fontSize: 12,color: Colors.orangeAccent),),
-                Text("时间",style: TextStyle(fontSize: 10,color: Colors.deepPurpleAccent),),
-              ],
-            )
-          ],
-        ),
-        Text("内容",style: TextStyle(fontSize: 13,color: Colors.black),),
-      ],
-    );
-  }
 }

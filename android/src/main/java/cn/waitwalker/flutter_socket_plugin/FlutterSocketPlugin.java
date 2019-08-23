@@ -12,15 +12,22 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 /** FlutterSocketPlugin */
 public class FlutterSocketPlugin implements MethodCallHandler {
+
+  private Registrar registrar;
+
   /** Plugin registration. */
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutter_socket_plugin");
-    channel.setMethodCallHandler(new FlutterSocketPlugin());
-    FlutterSocket.sharedInstance().createChannel(registrar);
+    channel.setMethodCallHandler(new FlutterSocketPlugin(registrar));
+  }
+
+  private FlutterSocketPlugin(Registrar registrar) {
+    this.registrar = registrar;
   }
 
   @Override
   public void onMethodCall(MethodCall call, Result result) {
+    FlutterSocket.sharedInstance().createChannel(registrar);
     if (call.method.equals("create_socket")) {
 
       Map dic = (Map) call.arguments;
@@ -29,10 +36,9 @@ public class FlutterSocketPlugin implements MethodCallHandler {
         if (dic.containsKey("host") && dic.containsKey("port")) {
           String host = (String) dic.get("host");
           int port = (int) dic.get("port");
-          int timeout = 30000;
+          int timeout = 30;
           if (dic.containsKey("timeout")) {
             timeout = (int) dic.get("timeout");
-            timeout = timeout * 1000;
           }
 
           FlutterSocket.sharedInstance().createSocket(host,port,timeout);
