@@ -50,17 +50,21 @@ class _HomePageState extends State<HomePage> {
   /// @Date: 2019-08-23
   ///
   initSocket() {
+
+    /// init socket
     flutterSocket = FlutterSocket();
 
+    /// listen connect callback
     flutterSocket.connectListener((data){
       print("connect listener data:$data");
     });
 
+    /// listen error callback
     flutterSocket.errorListener((data){
       print("error listener data:$data");
     });
 
-
+    /// listen receive callback
     flutterSocket.receiveListener((data){
       print("receive listener data:$data");
       if (data != null) {
@@ -71,6 +75,7 @@ class _HomePageState extends State<HomePage> {
       });
     });
 
+    /// listen disconnect callback
     flutterSocket.disconnectListener((data){
       print("disconnect listener data:$data");
     });

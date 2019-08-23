@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3e19341-6a67-482e-ab53-b36190c877be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_socket_plugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/.symlinks/plugins/flutter_socket_plugin/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
@@ -30,10 +28,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="65" column="15" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
+            <state relative-caret-position="300">
+              <caret line="128" column="23" selection-start-line="128" selection-start-column="20" selection-end-line="128" selection-end-column="90" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#1119#1545#0" />
               </folding>
             </state>
           </provider>
@@ -154,8 +153,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-150" />
-    <option name="y" value="-1029" />
+    <option name="x" value="429" />
+    <option name="y" value="-1015" />
     <option name="width" value="1490" />
     <option name="height" value="987" />
   </component>
@@ -257,9 +256,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-150" y="-1029" width="1490" height="987" extended-state="0" />
+    <frame x="429" y="-1015" width="1490" height="987" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27002764" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27002764" />
       <window_info id="Captures" order="1" side_tool="true" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -274,7 +274,7 @@
       <window_info anchor="bottom" id="Catdea" order="3" />
       <window_info anchor="bottom" id="Android Profiler" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Logcat" order="5" weight="0.32954547" />
-      <window_info active="true" anchor="bottom" id="Debug" order="6" visible="true" weight="0.3530726" />
+      <window_info anchor="bottom" id="Debug" order="6" visible="true" weight="0.3530726" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.36536312" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3286385" />
       <window_info anchor="bottom" id="Flutter Performance" order="9" side_tool="true" />
@@ -294,12 +294,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/example/lib/main.dart</url>
-          <line>65</line>
+          <line>69</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/example/lib/main.dart</url>
-          <line>64</line>
+          <line>68</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -454,10 +454,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example/lib/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="65" column="15" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
+        <state relative-caret-position="300">
+          <caret line="128" column="23" selection-start-line="128" selection-start-column="20" selection-end-line="128" selection-end-column="90" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#1119#1545#0" />
           </folding>
         </state>
       </provider>
