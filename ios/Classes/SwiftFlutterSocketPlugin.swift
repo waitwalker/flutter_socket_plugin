@@ -149,8 +149,26 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
     /// - Parameter message: message
     public func send(message:String) -> Void {
         if connected {
-            let data:Data = message.data(using: String.Encoding.utf8)!
-            socket.write(data, withTimeout: -1, tag: 0)
+            
+            let contentData:Data = message.data(using: String.Encoding.utf8)!
+            let value:Int = contentData.count
+            
+            var byteData:[UInt8] = []
+            let byte_0:UInt8 = UInt8((value & 0xFF000000) >> 24)
+            let byte_1:UInt8 = UInt8((value & 0xFF000000) >> 16)
+            let byte_2:UInt8 = UInt8((value & 0xFF000000) >> 8)
+            let byte_3:UInt8 = UInt8((value & 0xFF000000))
+            byteData.append(byte_0)
+            byteData.append(byte_1)
+            byteData.append(byte_2)
+            byteData.append(byte_3)
+            
+            let headData = Data(bytes: byteData)
+            let send_data = NSMutableData()
+            send_data.append(headData)
+            send_data.append(contentData)
+            
+            socket.write(send_data as Data, withTimeout: -1, tag: 0)
         }
     }
     

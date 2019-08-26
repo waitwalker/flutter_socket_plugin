@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.lightBlueAccent,
                   child: Text("Create",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                   onPressed: () async {
-                    await flutterSocket.createSocket("192.168.8.120", 10007, timeout: 20);
+                    await flutterSocket.createSocket(_host, _port, timeout: 20);
                   },
                 ),
                 Padding(padding: EdgeInsets.only(left: 20)),
