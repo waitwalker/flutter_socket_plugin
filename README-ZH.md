@@ -13,7 +13,7 @@ FlutterSocket是一个实用的跨平台socket插件,目前已经实现client端
 
 ## Demo
 
-[Demo](https://github.com/waitwalker/Resources/blob/master/Flutter/FlutterSocket/FlutterSocket.gif?raw=true)
+![Demo](https://github.com/waitwalker/Resources/blob/master/Flutter/FlutterSocket/FlutterSocket.gif?raw=true)
 
 ## 添加依赖
 

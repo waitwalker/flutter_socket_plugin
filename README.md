@@ -13,7 +13,7 @@ FlutterSocket is a practical cross-platform socket plugin. At present, it has re
 
 ## Demo 
 
-[Demo](https://github.com/waitwalker/Resources/blob/master/Flutter/FlutterSocket/FlutterSocket.gif?raw=true)
+![Demo](https://github.com/waitwalker/Resources/blob/master/Flutter/FlutterSocket/FlutterSocket.gif?raw=true)
 
 ## Add dependency
 
