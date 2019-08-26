@@ -11,6 +11,10 @@ Language: [English](README.md) | [中文简体](README-ZH.md)
 
 FlutterSocket is a practical cross-platform socket plugin. At present, it has realized the basic functions of client side: create, connect, send, receive, disconnect, heartbeat and so on.
 
+## Demo 
+
+[Demo](https://github.com/waitwalker/Resources/blob/master/Flutter/FlutterSocket/FlutterSocket.gif?raw=true)
+
 ## Add dependency
 
 ```yaml

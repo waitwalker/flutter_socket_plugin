@@ -11,6 +11,10 @@
 
 FlutterSocket是一个实用的跨平台socket插件,目前已经实现client端的基本功能:创建,连接,发送消息,收消息,断开连接,心跳等功能...
 
+## Demo
+
+[Demo](https://github.com/waitwalker/Resources/blob/master/Flutter/FlutterSocket/FlutterSocket.gif?raw=true)
+
 ## 添加依赖
 
 ```yaml
