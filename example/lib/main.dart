@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_socket_plugin/flutter_socket_plugin.dart';
 
 void main() => runApp(App());
