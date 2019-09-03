@@ -120,5 +120,5 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 扫描👇二维码:
 
-<img src="https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development_0904.JPG?raw=true" width="350" height="500" align=center />
+<img src="https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development_0910.JPG?raw=true" width="350" height="500" align=center />
 
