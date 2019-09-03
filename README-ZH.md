@@ -19,14 +19,14 @@ FlutterSocket是一个实用的跨平台socket插件,目前已经实现client端
 
 ```yaml
 dependencies:
-  flutter_socket_plugin: 0.0.1  
+  flutter_socket_plugin: lastest version  
 ```
 
 ## 使用示例
 
 ```dart
 import 'package:flutter_socket_plugin/flutter_socket_plugin.dart';
-///
+  ///
   /// @Method: initSocket
   /// @Parameter:
   /// @ReturnType:

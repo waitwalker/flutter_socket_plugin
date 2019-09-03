@@ -13,3 +13,7 @@ Update some documents
 ## 0.0.4
 
 Update group
+
+## 1.0.0
+
+Release version

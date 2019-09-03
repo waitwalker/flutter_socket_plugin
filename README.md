@@ -19,14 +19,14 @@ FlutterSocket is a practical cross-platform socket plugin. At present, it has re
 
 ```yaml
 dependencies:
-  flutter_socket_plugin: 0.0.1  
+  flutter_socket_plugin: lastest version  
 ```
 
 ## Simple to use
 
 ```dart
 import 'package:flutter_socket_plugin/flutter_socket_plugin.dart';
-///
+  ///
   /// @Method: initSocket
   /// @Parameter:
   /// @ReturnType:
