@@ -120,5 +120,5 @@ wechat:dbzy_duzhao
 
 Scan QR code👇:
 
-<img src="https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development_0910.JPG?raw=true" width="350" height="500" align=center />
+<img src="https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development_0916.JPG?raw=true" width="350" height="500" align=center />
 
