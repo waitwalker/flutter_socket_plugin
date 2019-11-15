@@ -163,7 +163,7 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
             byteData.append(byte_2)
             byteData.append(byte_3)
             
-            let headData = Data(bytes: byteData)
+            let headData = Data(byteData)
             let send_data = NSMutableData()
             send_data.append(headData)
             send_data.append(contentData)
@@ -184,7 +184,7 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
     /// add heart
     private func addHeartTimer() -> Void {
         heartTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(heartAction), userInfo: nil, repeats: true)
-        RunLoop.current.add(heartTimer, forMode: RunLoopMode.commonModes)
+        RunLoop.current.add(heartTimer, forMode: RunLoop.Mode.common)
     }
 
     @objc func heartAction() -> Void {
