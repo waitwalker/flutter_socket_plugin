@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
 
   FlutterSocket flutterSocket;
   bool connected = false;
-  String _host = "192.168.8.82";
+  String _host = "192.168.10.63";
   int _port = 10007;
   String receiveMessage = "";
 

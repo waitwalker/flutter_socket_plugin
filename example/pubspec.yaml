@@ -1,6 +1,7 @@
 name: flutter_socket_plugin_example
 description: Demonstrates how to use the flutter_socket_plugin plugin.
 publish_to: 'none'
+version: 1.0.2+1
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
