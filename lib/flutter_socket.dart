@@ -87,7 +87,7 @@ class FlutterSocket {
   ///
   _handleCallBack(String methodName, var arguments) {
     print("_listeners:${_closures.length}");
-    var function = _closures[methodName];
+    var function = _closures[methodName]!;
     /// 调用函数
     Function.apply(function, [arguments]);
   }
@@ -100,7 +100,7 @@ class FlutterSocket {
   /// @author: waitwalker
   /// @Date: 2019-08-21
   ///
-  Future<bool> createSocket(String host, int port, {timeout = 30}) async {
+  Future<bool?> createSocket(String host, int port, {timeout = 30}) async {
     Map arguments = {
       "host":host,
       "port":port,
