@@ -8,9 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3e19341-6a67-482e-ab53-b36190c877be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/example/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/test/widget_test.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,38 +87,38 @@
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
     <state x="2149" y="128" width="1377" height="731" key="AVDManager/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623400815139" />
-    <state width="1533" height="379" key="GridCell.Tab.0.bottom" timestamp="1623401583549">
+    <state width="1533" height="379" key="GridCell.Tab.0.bottom" timestamp="1623402515375">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="379" key="GridCell.Tab.0.bottom/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623401583549" />
-    <state width="1533" height="379" key="GridCell.Tab.0.center" timestamp="1623401583548">
+    <state width="1533" height="379" key="GridCell.Tab.0.bottom/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623402515375" />
+    <state width="1533" height="379" key="GridCell.Tab.0.center" timestamp="1623402515375">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="379" key="GridCell.Tab.0.center/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623401583548" />
-    <state width="1533" height="379" key="GridCell.Tab.0.left" timestamp="1623401583548">
+    <state width="1533" height="379" key="GridCell.Tab.0.center/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623402515375" />
+    <state width="1533" height="379" key="GridCell.Tab.0.left" timestamp="1623402515374">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="379" key="GridCell.Tab.0.left/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623401583548" />
-    <state width="1533" height="379" key="GridCell.Tab.0.right" timestamp="1623401583549">
+    <state width="1533" height="379" key="GridCell.Tab.0.left/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623402515374" />
+    <state width="1533" height="379" key="GridCell.Tab.0.right" timestamp="1623402515375">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="379" key="GridCell.Tab.0.right/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623401583549" />
-    <state width="1533" height="379" key="GridCell.Tab.1.bottom" timestamp="1623401583548">
+    <state width="1533" height="379" key="GridCell.Tab.0.right/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623402515375" />
+    <state width="1533" height="379" key="GridCell.Tab.1.bottom" timestamp="1623402515433">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="379" key="GridCell.Tab.1.bottom/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623401583548" />
-    <state width="1533" height="379" key="GridCell.Tab.1.center" timestamp="1623401583548">
+    <state width="1533" height="379" key="GridCell.Tab.1.bottom/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623402515433" />
+    <state width="1533" height="379" key="GridCell.Tab.1.center" timestamp="1623402515432">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="379" key="GridCell.Tab.1.center/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623401583548" />
-    <state width="1533" height="379" key="GridCell.Tab.1.left" timestamp="1623401583547">
+    <state width="1533" height="379" key="GridCell.Tab.1.center/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623402515432" />
+    <state width="1533" height="379" key="GridCell.Tab.1.left" timestamp="1623402515430">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="379" key="GridCell.Tab.1.left/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623401583547" />
-    <state width="1533" height="379" key="GridCell.Tab.1.right" timestamp="1623401583548">
+    <state width="1533" height="379" key="GridCell.Tab.1.left/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623402515430" />
+    <state width="1533" height="379" key="GridCell.Tab.1.right" timestamp="1623402515432">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="379" key="GridCell.Tab.1.right/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623401583548" />
+    <state width="1533" height="379" key="GridCell.Tab.1.right/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623402515432" />
     <state x="2453" y="126" key="SettingsEditor" timestamp="1623400351011">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>

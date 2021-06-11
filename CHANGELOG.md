@@ -21,3 +21,7 @@ Release version
 ## 1.0.1
 
 Adapt to Swift 5.0+
+
+## 2.0.0
+
+Adapt to Flutter 2.0 & nullsafety

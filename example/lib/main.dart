@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   TextEditingController textEditingController = TextEditingController();
 
-  FlutterSocket flutterSocket;
+  FlutterSocket? flutterSocket;
   bool connected = false;
   String _host = "192.168.10.63";
   int _port = 10007;
@@ -53,17 +53,17 @@ class _HomePageState extends State<HomePage> {
     flutterSocket = FlutterSocket();
 
     /// listen connect callback
-    flutterSocket.connectListener((data){
+    flutterSocket!.connectListener((data){
       print("connect listener data:$data");
     });
 
     /// listen error callback
-    flutterSocket.errorListener((data){
+    flutterSocket!.errorListener((data){
       print("error listener data:$data");
     });
 
     /// listen receive callback
-    flutterSocket.receiveListener((data){
+    flutterSocket!.receiveListener((data){
       print("receive listener data:$data");
       if (data != null) {
         receiveMessage = receiveMessage + "\n" + data;
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
     });
 
     /// listen disconnect callback
-    flutterSocket.disconnectListener((data){
+    flutterSocket!.disconnectListener((data){
       print("disconnect listener data:$data");
     });
 
@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Text("Create",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                     onPressed: () async {
-                      await flutterSocket.createSocket(_host, _port, timeout: 20);
+                      await flutterSocket!.createSocket(_host, _port, timeout: 20);
                     },
                   ),
                   Padding(padding: EdgeInsets.only(left: 20)),
@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Text("Connect",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                     onPressed: (){
-                      flutterSocket.tryConnect();
+                      flutterSocket!.tryConnect();
                     },
                   ),
                   Padding(padding: EdgeInsets.only(left: 20)),
@@ -146,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Text("Disconnect",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                     onPressed: (){
-                      flutterSocket.tryDisconnect();
+                      flutterSocket!.tryDisconnect();
                     },
                   ),
                 ],
@@ -180,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   child: Text("Send",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                   onPressed: (){
-                    flutterSocket.send(textEditingController.text);
+                    flutterSocket!.send(textEditingController.text);
                   },),
               ),
             ),
