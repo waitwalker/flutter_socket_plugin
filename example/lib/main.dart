@@ -120,24 +120,30 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(left: 20,right: 20,top: 30),
               child: Row(
                 children: <Widget>[
-                  RaisedButton(
-                    color: Colors.lightBlueAccent,
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: ButtonStyleButton.allOrNull<Color>(Colors.lightBlueAccent),
+                    ),
                     child: Text("Create",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                     onPressed: () async {
                       await flutterSocket.createSocket(_host, _port, timeout: 20);
                     },
                   ),
                   Padding(padding: EdgeInsets.only(left: 20)),
-                  RaisedButton(
-                    color: Colors.lightBlueAccent,
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: ButtonStyleButton.allOrNull<Color>(Colors.lightBlueAccent),
+                    ),
                     child: Text("Connect",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                     onPressed: (){
                       flutterSocket.tryConnect();
                     },
                   ),
                   Padding(padding: EdgeInsets.only(left: 20)),
-                  RaisedButton(
-                    color: Colors.lightBlueAccent,
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: ButtonStyleButton.allOrNull<Color>(Colors.lightBlueAccent),
+                    ),
                     child: Text("Disconnect",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                     onPressed: (){
                       flutterSocket.tryDisconnect();
@@ -168,8 +174,10 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(left: 20,right: 20,top: 10),
               child: Container(
                 alignment: Alignment.centerLeft,
-                child: RaisedButton(
-                  color: Colors.lightBlueAccent,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: ButtonStyleButton.allOrNull<Color>(Colors.lightBlueAccent),
+                  ),
                   child: Text("Send",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                   onPressed: (){
                     flutterSocket.send(textEditingController.text);
@@ -181,8 +189,10 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(left: 20,right: 20,top: 30),
               child: Container(
                 alignment: Alignment.centerLeft,
-                child: RaisedButton(
-                  color: Colors.lightBlueAccent,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: ButtonStyleButton.allOrNull<Color>(Colors.lightBlueAccent),
+                  ),
                   child: Text("Receive Data",style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.w500),),
                   onPressed: (){},),
               ),
