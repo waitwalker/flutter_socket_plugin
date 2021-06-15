@@ -1,5 +1,5 @@
 PODS:
-  - CocoaAsyncSocket (7.6.3)
+  - CocoaAsyncSocket (7.6.5)
   - Flutter (1.0.0)
   - flutter_socket_plugin (1.0.1):
     - CocoaAsyncSocket
@@ -10,7 +10,7 @@ DEPENDENCIES:
   - flutter_socket_plugin (from `.symlinks/plugins/flutter_socket_plugin/ios`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - CocoaAsyncSocket
 
 EXTERNAL SOURCES:
@@ -20,10 +20,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_socket_plugin/ios"
 
 SPEC CHECKSUMS:
-  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   flutter_socket_plugin: 62af2593ea11e97a484573c25bb7c05ba52aa042
 
-PODFILE CHECKSUM: c34e2287a9ccaa606aeceab922830efb9a6ff69a
+PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.10.1

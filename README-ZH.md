@@ -9,7 +9,9 @@
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://waitwalker.cn/2019/08/15/%E4%BA%A4%E6%B5%81%E7%BE%A4%E7%BB%84/)
 
 
-FlutterSocket是一个实用的跨平台socket插件,目前已经实现client端的基本功能:创建,连接,发送消息,收消息,断开连接,心跳等功能...
+FlutterSocket是一个实用的跨平台socket插件,目前已经实现client端的基本功能:创建,连接,发送消息,收消息,断开连接等功能...
+### 如果你需要其他的功能,可以在此基础上拓展
+
 
 ## Demo
 

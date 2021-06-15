@@ -9,7 +9,8 @@ Language: [English](README.md) | [中文简体](README-ZH.md)
 [![support](https://img.shields.io/badge/platform-flutter%7Cdart%20vm-ff69b4.svg?style=flat-square)](https://waitwalker.cn/2019/08/15/%E4%BA%A4%E6%B5%81%E7%BE%A4%E7%BB%84/)
 
 
-FlutterSocket is a practical cross-platform socket plugin. At present, it has realized the basic functions of client side: create, connect, send, receive, disconnect, heartbeat and so on.
+FlutterSocket is a practical cross-platform socket plugin. At present, it has realized the basic functions of client side: create, connect, send, receive, disconnect and so on.
+### If you need other functions, you can expand on this basis.
 
 ## Demo 
 
