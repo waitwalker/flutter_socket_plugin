@@ -16,7 +16,9 @@ FlutterSocket是一个实用的跨平台socket插件,目前已经实现client端
 ## Demo
 
 ![Demo](https://github.com/waitwalker/Resources/blob/master/Flutter/FlutterSocket/socket_demo.gif?raw=true)
+
 ### Video
+video url: https://www.youtube.com/watch?v=fmtwYHeOvE0
 <video src="https://www.youtube.com/watch?v=fmtwYHeOvE0" controls="controls" width="500" height="300">您的浏览器不支持播放该视频！</video>
 
 ## 添加依赖
