@@ -1,10 +1,8 @@
 package cn.waitwalker.flutter_socket_plugin;
-
-import com.xuhao.didi.core.iocore.interfaces.ISendable;
-
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.core.iocore.interfaces.ISendable;
 
 public class MsgDataBean implements ISendable {
     public String content = "";

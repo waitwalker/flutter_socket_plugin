@@ -25,3 +25,7 @@ Adapt to Swift 5.0+
 ## 2.0.0
 
 Adapt to Flutter 2.0 & nullsafety
+
+## 3.0.0
+
+Function optimization

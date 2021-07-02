@@ -149,19 +149,37 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
     /// - Parameter message: message
     public func send(message:String) -> Void {
         if connected {
-            
-            let contentData:Data = message.data(using: String.Encoding.utf8)!
+            let fullMessage:String = message + "||";
+            let contentData:Data = fullMessage.data(using: String.Encoding.utf8)!
             let value:Int = contentData.count
             
             var byteData:[UInt8] = []
-            let byte_0:UInt8 = UInt8((value & 0xFF000000) >> 24)
-            let byte_1:UInt8 = UInt8((value & 0xFF000000) >> 16)
-            let byte_2:UInt8 = UInt8((value & 0xFF000000) >> 8)
-            let byte_3:UInt8 = UInt8((value & 0xFF000000))
+            let byte_0:UInt8 = UInt8((value & 0xFF000000) >> 96)
+            let byte_1:UInt8 = UInt8((value & 0xFF000000) >> 88)
+            let byte_2:UInt8 = UInt8((value & 0xFF000000) >> 80)
+            let byte_3:UInt8 = UInt8((value & 0xFF000000) >> 72)
+            let byte_4:UInt8 = UInt8((value & 0xFF000000) >> 64)
+            let byte_5:UInt8 = UInt8((value & 0xFF000000) >> 56)
+            let byte_6:UInt8 = UInt8((value & 0xFF000000) >> 48)
+            let byte_7:UInt8 = UInt8((value & 0xFF000000) >> 40)
+            let byte_8:UInt8 = UInt8((value & 0xFF000000) >> 32)
+            let byte_9:UInt8 = UInt8((value & 0xFF000000) >> 24)
+            let byte_10:UInt8 = UInt8((value & 0xFF000000) >> 16)
+            let byte_11:UInt8 = UInt8((value & 0xFF000000) >> 8)
+            let byte_12:UInt8 = UInt8((value & 0xFF000000))
             byteData.append(byte_0)
             byteData.append(byte_1)
             byteData.append(byte_2)
             byteData.append(byte_3)
+            byteData.append(byte_4)
+            byteData.append(byte_5)
+            byteData.append(byte_6)
+            byteData.append(byte_7)
+            byteData.append(byte_8)
+            byteData.append(byte_9)
+            byteData.append(byte_10)
+            byteData.append(byte_11)
+            byteData.append(byte_12)
             
             let headData = Data(byteData)
             let send_data = NSMutableData()
@@ -188,7 +206,7 @@ class FlutterSocket:NSObject, GCDAsyncSocketDelegate {
     }
 
     @objc func heartAction() -> Void {
-        let heartString = "heart"
+        let heartString = "h**eart||hear**t||hear**t"
         let data:Data = heartString.data(using: String.Encoding.utf8)!
         socket.write(data, withTimeout: -1, tag: 0)
     }

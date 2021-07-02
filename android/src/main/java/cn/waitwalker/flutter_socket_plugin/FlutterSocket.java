@@ -5,24 +5,28 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 
-import com.xuhao.didi.core.iocore.interfaces.IPulseSendable;
-import com.xuhao.didi.core.iocore.interfaces.ISendable;
-import com.xuhao.didi.core.pojo.OriginalData;
-import com.xuhao.didi.core.protocol.IReaderProtocol;
-import com.xuhao.didi.socket.client.impl.client.action.ActionDispatcher;
-import com.xuhao.didi.socket.client.sdk.OkSocket;
-import com.xuhao.didi.socket.client.sdk.client.ConnectionInfo;
-import com.xuhao.didi.socket.client.sdk.client.OkSocketOptions;
-import com.xuhao.didi.socket.client.sdk.client.action.SocketActionAdapter;
-import com.xuhao.didi.socket.client.sdk.client.connection.IConnectionManager;
-import com.xuhao.didi.socket.client.sdk.client.connection.NoneReconnect;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.client.impl.client.action.ActionDispatcher;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.client.sdk.OkSocket;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.client.sdk.client.ConnectionInfo;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.client.sdk.client.OkSocketOptions;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.client.sdk.client.action.SocketActionAdapter;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.client.sdk.client.connection.IConnectionManager;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.client.sdk.client.connection.NoneReconnect;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.core.iocore.interfaces.IPulseSendable;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.core.iocore.interfaces.ISendable;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.core.pojo.OriginalData;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.oksocket.core.protocol.IReaderProtocol;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.sdk.SocketConfig;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.sdk.jt808coding.JTT808Coding;
+import cn.waitwalker.flutter_socket_plugin.jt808_sdk.sdk.socketbean.SendDataBean;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
 
@@ -120,8 +124,8 @@ public class FlutterSocket {
         if (!socket.isConnect()) {
             Log.d("SendTag","have disconnected");
         } else {
-            MsgDataBean msgDataBean = new MsgDataBean(message);
-            socket.send(msgDataBean);
+            byte[] body = JTT808Coding.generate808(0X0001, SocketConfig.getmPhont(), message.getBytes(Charset.forName("UTF-8")), 0, 0, SocketConfig.getSocketMsgCount());
+            socket.send(new SendDataBean(body));
         }
     }
 
@@ -173,8 +177,11 @@ public class FlutterSocket {
 
         @Override
         public void onSocketWriteResponse(ConnectionInfo info, String action, ISendable data) {
-            MsgDataBean msgDataBean = (MsgDataBean) data;
-            String str = msgDataBean.content;
+            SendDataBean msgDataBean = (SendDataBean) data;
+            byte[] data1 = msgDataBean.parse();
+            String str = new String(data1, Charset.forName("UTF-8"));
+            str = str.substring(13);
+            str = str.substring(0,str.length() -2);
             Log.d("Write response",str);
         }
 

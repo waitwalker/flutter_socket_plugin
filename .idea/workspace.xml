@@ -8,49 +8,124 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3e19341-6a67-482e-ab53-b36190c877be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/example/android/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/java/com/example/example/MainActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/drawable-v21/launch_background.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/android/app/src/main/res/values-night/styles.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/document/reply" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/AbsConnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/ConnectionManagerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/ManagerHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/PulseManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/abilities/IConnectionSwitchListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/action/ActionDispatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/action/ActionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/iothreads/DuplexReadThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/iothreads/DuplexWriteThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/iothreads/IOThreadManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/client/iothreads/SimplexIOThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/exceptions/DogDeadException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/exceptions/ManuallyDisconnectException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/impl/exceptions/UnConnectException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/OkSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/ConnectionInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/OkSocketFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/OkSocketOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/OkSocketSSLConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/action/IAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/action/ISocketActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/action/SocketActionAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/bean/IPulse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/connection/AbsReconnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/connection/DefaultReconnectManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/connection/IConnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/connection/NoneReconnect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/connection/abilities/IConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/client/sdk/client/connection/abilities/IConnectable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/exceptions/ReadException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/exceptions/WriteException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/AbsReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/ReaderImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/WriterImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/interfaces/IIOCoreOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/interfaces/IOAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/interfaces/IPulseSendable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/interfaces/IReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/interfaces/ISendable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/interfaces/IStateSender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/iocore/interfaces/IWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/pojo/OriginalData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/protocol/IReaderProtocol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/utils/BytesUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/core/utils/SLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/basic/AbsLoopThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/IIOManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/client/IDisConnectable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/client/ISender.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/dispatcher/IRegister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/server/IClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/server/IClientIOCallback.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/server/IClientPool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/server/IServerActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/server/IServerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/server/IServerManagerPrivate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/common_interfacies/server/IServerShutdown.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/default_protocol/DefaultNormalReaderProtocol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/default_protocol/DefaultX509ProtocolTrustManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/utils/SPIUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/utils/TextUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/oksocket/interfaces/utils/ThreadUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/SocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/SocketManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/SocketManagerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/exceptions/SocketManagerException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/interfaces/OnGetResetDeviceList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/interfaces/OnResetDeviceList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/interfaces/SocketActionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/interfaces/SocketPulseListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/interfaces/StartLocationBackList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808bean/Generate808andSeqBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808bean/Header808Bean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808bean/JTT808Bean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808bean/Jt808MapLocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808coding/JT808Directive.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808coding/JTT808Coding.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808coding/Jt808StickDataUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808utils/BCD8421Operater.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808utils/BitOperator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808utils/ByteUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808utils/HexUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808utils/HexUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/jt808utils/TimeUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/protocol/JT808ReaderProtocol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/protocol/Jt808ReconnectManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/socketbean/PulseData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/sdk/socketbean/SendDataBean.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/utils/L.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/utils/ListUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/utils/LogUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/jt808_sdk/utils/PreferenceUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/client_page.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/environment_config.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/server_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/example_lib_main_dart.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations/example_lib_main_dart.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README-ZH.md" beforeDir="false" afterPath="$PROJECT_DIR$/README-ZH.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/FlutterSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/FlutterSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/MsgDataBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/cn/waitwalker/flutter_socket_plugin/MsgDataBean.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/example/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/example/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/.metadata" beforeDir="false" afterPath="$PROJECT_DIR$/example/.metadata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/example/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/debug/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/java/cn/waitwalker/flutter_socket_plugin_example/MainActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/main/res/values/styles.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/app/src/profile/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/app/src/profile/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/example/android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Flutter/.last_build_id" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Flutter/AppFrameworkInfo.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Flutter/Debug.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Flutter/Debug.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Flutter/Flutter.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Flutter/Flutter.podspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Flutter/Release.xcconfig" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Flutter/Release.xcconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Podfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Podfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" afterPath="$PROJECT_DIR$/example/ios/Runner/Runner-Bridging-Header.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/example/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/test/widget_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/test/widget_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/SwiftFlutterSocketPlugin.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/SwiftFlutterSocketPlugin.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/flutter_socket_plugin_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/flutter_socket_plugin_test.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +135,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/Users/waitwalker/.android/avd/Pixel_3a_1080_10.0.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@/Users/waitwalker/.android/avd/Nexus_10_API_30.avd]" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -123,46 +198,54 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
+    <state x="2310" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1625211737025">
+      <screen x="1920" y="25" width="1920" height="1055" />
+    </state>
+    <state x="2310" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625211737025" />
     <state x="2149" y="128" width="1377" height="731" key="AVDManager" timestamp="1623735809273">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
     <state x="2149" y="128" width="1377" height="731" key="AVDManager/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623735809273" />
-    <state width="1533" height="221" key="GridCell.Tab.0.bottom" timestamp="1623736097695">
+    <state width="1594" height="164" key="GridCell.Tab.0.bottom" timestamp="1625214270654">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="221" key="GridCell.Tab.0.bottom/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623736097695" />
-    <state width="1533" height="221" key="GridCell.Tab.0.center" timestamp="1623736097695">
+    <state width="1594" height="164" key="GridCell.Tab.0.bottom/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625214270654" />
+    <state width="1594" height="164" key="GridCell.Tab.0.center" timestamp="1625214270652">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="221" key="GridCell.Tab.0.center/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623736097695" />
-    <state width="1533" height="221" key="GridCell.Tab.0.left" timestamp="1623736097695">
+    <state width="1594" height="164" key="GridCell.Tab.0.center/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625214270652" />
+    <state width="1594" height="164" key="GridCell.Tab.0.left" timestamp="1625214270650">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="221" key="GridCell.Tab.0.left/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623736097695" />
-    <state width="1533" height="221" key="GridCell.Tab.0.right" timestamp="1623736097695">
+    <state width="1594" height="164" key="GridCell.Tab.0.left/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625214270650" />
+    <state width="1594" height="164" key="GridCell.Tab.0.right" timestamp="1625214270653">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="221" key="GridCell.Tab.0.right/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623736097695" />
-    <state width="1533" height="221" key="GridCell.Tab.1.bottom" timestamp="1623736097695">
+    <state width="1594" height="164" key="GridCell.Tab.0.right/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625214270653" />
+    <state width="1594" height="164" key="GridCell.Tab.1.bottom" timestamp="1625214271618">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="221" key="GridCell.Tab.1.bottom/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623736097695" />
-    <state width="1533" height="221" key="GridCell.Tab.1.center" timestamp="1623736097694">
+    <state width="1594" height="164" key="GridCell.Tab.1.bottom/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625214271618" />
+    <state width="1594" height="164" key="GridCell.Tab.1.center" timestamp="1625214271617">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="221" key="GridCell.Tab.1.center/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623736097694" />
-    <state width="1533" height="221" key="GridCell.Tab.1.left" timestamp="1623736097694">
+    <state width="1594" height="164" key="GridCell.Tab.1.center/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625214271617" />
+    <state width="1594" height="164" key="GridCell.Tab.1.left" timestamp="1625214271616">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="221" key="GridCell.Tab.1.left/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623736097694" />
-    <state width="1533" height="221" key="GridCell.Tab.1.right" timestamp="1623736097695">
+    <state width="1594" height="164" key="GridCell.Tab.1.left/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625214271616" />
+    <state width="1594" height="164" key="GridCell.Tab.1.right" timestamp="1625214271618">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
-    <state width="1533" height="221" key="GridCell.Tab.1.right/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623736097695" />
+    <state width="1594" height="164" key="GridCell.Tab.1.right/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625214271618" />
     <state x="2453" y="126" key="SettingsEditor" timestamp="1623400351011">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
     <state x="2453" y="126" key="SettingsEditor/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1623400351011" />
+    <state x="2551" y="261" width="723" height="510" key="find.popup" timestamp="1625207325901">
+      <screen x="1920" y="25" width="1920" height="1055" />
+    </state>
+    <state x="2551" y="261" width="723" height="510" key="find.popup/1920.25.1920.1055/0.25.1920.985@1920.25.1920.1055" timestamp="1625207325901" />
     <state x="2469" y="121" key="new project wizard" timestamp="1623735837505">
       <screen x="1920" y="25" width="1920" height="1055" />
     </state>
