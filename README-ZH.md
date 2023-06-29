@@ -124,7 +124,3 @@ Please file feature requests and bugs at the [issue tracker][tracker].
 
 作者微信:dbzy_duzhao
 
-扫描👇二维码邀请加入群组:
-
-<img src="https://github.com/waitwalker/Resources/blob/master/Flutter/group/flutter_development_0923.JPG?raw=true" width="350" height="500" align=center />
-
